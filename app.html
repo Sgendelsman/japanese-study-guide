@@ -1009,9 +1009,10 @@ function renderDetail(card, parent) {
         button.href = cardUrl(linkedCard);
         button.append(element("span", "", linkedCard.term), element("small", "", linkedCard.meaning));
         const specific = matchingKanjiReading(card, linkedCard);
-        button.append(element("small", "", specific
-          ? `${specific.kind} in this word: ${specific.reading} · ${romanized(specific.reading)}`
-          : "Specific reading in this word: not specified"));
+        if (specific) {
+          button.append(element("small", "",
+            `${specific.kind} in this word: ${specific.reading} · ${romanized(specific.reading)}`));
+        }
         list.append(button);
       }
       section.append(list);
