@@ -34,7 +34,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 
 - The app has Browse, Study, and Conjugation Guide views.
 - Study has Lessons and Reviews sections.
-- The profile control in the header allows profile selection and profile creation.
+- The profile control in the header opens a compact list of selectable profiles with a trailing add button. The selected profile is visibly highlighted. Adding opens an inline name field above the add button; leaving the field saves a non-empty name, and an adjacent cancel button abandons profile creation. Profiles cannot be deleted in the UI.
 - Card and view routes use URL fragments and support browser navigation.
 - The app is hosted on GitHub Pages from the repository's `main` branch and remains usable as a standalone offline HTML file.
 

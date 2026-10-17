@@ -28,7 +28,7 @@ Each learned card has an interval in whole days, a local date key (`YYYY-MM-DD`)
 
 ## Profiles and persistence
 
-Profiles are local to the browser and have a name, internal ID, and independent map of card progress. The initial profile is named Steven. Names must be non-empty and unique without regard to letter case. Profile creation selects the new, empty profile; switching profiles loads its independent progress.
+Profiles are local to the browser and have a name, internal ID, and independent map of card progress. The initial profile is named Steven. Names must be non-empty and unique without regard to letter case. The profile menu lists every profile as a button, highlights the selected profile, and puts an add button after the names. Selecting a name switches profiles. Selecting add inserts a name field immediately above the add button. Leaving the field saves a non-empty name and selects the new profile; Enter also saves. An adjacent X cancels profile creation. The interface does not delete profiles.
 
 The `japanese-study-profiles-v1` local-storage value has this shape:
 

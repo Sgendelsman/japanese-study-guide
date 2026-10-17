@@ -5,6 +5,8 @@ let reviewSessionIndex = 0;
 let reviewAnswerRevealed = false;
 let reviewSessionActive = false;
 let activeStudySection = "lessons";
+let profileCreationPending = false;
+let profileCreationId = 0;
 
 function renderCheckpointList() {
   const list = document.getElementById("checkpoint-list");
@@ -298,21 +300,145 @@ function setView(view, preserveSelected = false) {
 }
 
 function renderProfileMenu() {
-  const select = document.getElementById("profile-select");
-  select.replaceChildren();
+  const list = document.getElementById("profile-list");
+  list.replaceChildren();
   for (const profile of profileStore.profiles) {
-    const option = element("option", "", profile.name);
-    option.value = profile.id;
-    select.append(option);
+    const row = element("div", "profile-list-item");
+    row.setAttribute("role", "listitem");
+    const choice = element("button", "profile-choice", profile.name);
+    choice.type = "button";
+    choice.setAttribute("aria-pressed", String(profile.id === profileStore.activeProfileId));
+    choice.addEventListener("click", () => {
+      if (profileCreationPending && !savePendingProfile()) return;
+      activateProfile(profile.id);
+    });
+    row.append(choice);
+    list.append(row);
   }
-  select.value = profileStore.activeProfileId;
+  if (profileCreationPending) {
+    const row = element("div", "profile-list-item");
+    row.setAttribute("role", "listitem");
+    const form = element("form", "profile-create-row");
+    form.id = "profile-create-form";
+    const label = element("label", "visually-hidden", "New profile name");
+    label.htmlFor = "new-profile-name";
+    const input = element("input");
+    input.id = "new-profile-name";
+    input.type = "text";
+    input.maxLength = 40;
+    input.autocomplete = "off";
+    input.placeholder = "New profile name";
+    const cancel = element("button", "profile-cancel-button", "×");
+    cancel.type = "button";
+    cancel.setAttribute("aria-label", "Cancel profile creation");
+    cancel.addEventListener("mousedown", event => event.preventDefault());
+    cancel.addEventListener("click", cancelProfileCreation);
+    input.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        cancelProfileCreation();
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        savePendingProfile();
+      }
+    });
+    const pendingId = profileCreationId;
+    input.addEventListener("blur", event => {
+      if (!profileCreationPending || event.relatedTarget === cancel) return;
+      window.setTimeout(() => {
+        if (!profileCreationPending || pendingId !== profileCreationId || form.contains(document.activeElement)) return;
+        savePendingProfile();
+      }, 0);
+    });
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      savePendingProfile();
+    });
+    form.append(label, input, cancel);
+    row.append(form);
+    list.append(row);
+  }
+  const addRow = element("div", "profile-list-item");
+  addRow.setAttribute("role", "listitem");
+  const addButton = element("button", "profile-add-button", "+");
+  addButton.type = "button";
+  addButton.id = "profile-add";
+  addButton.setAttribute("aria-label", "Add profile");
+  addButton.addEventListener("click", () => {
+    if (profileCreationPending && !savePendingProfile()) return;
+    profileCreationPending = true;
+    profileCreationId++;
+    renderProfileMenu();
+    document.getElementById("new-profile-name").focus();
+  });
+  addRow.append(addButton);
+  list.append(addRow);
   const active = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
   document.getElementById("active-profile-name").textContent = active.name;
   document.getElementById("reset-progress").textContent = `Reset ${active.name}'s progress`;
 }
 
+function createProfile(name) {
+  if (profileStore.profiles.some(profile => profile.name.toLocaleLowerCase() === name.toLocaleLowerCase())) {
+    showNotice("A profile with that name already exists.");
+    return false;
+  }
+  let id = `profile-${profileStore.nextProfileNumber || profileStore.profiles.length + 1}`;
+  while (profileStore.profiles.some(profile => profile.id === id)) {
+    profileStore.nextProfileNumber = (profileStore.nextProfileNumber || 1) + 1;
+    id = `profile-${profileStore.nextProfileNumber}`;
+  }
+  const profile = { id, name, cards: {} };
+  const previousProfileId = profileStore.activeProfileId;
+  profileStore.profiles.push(profile);
+  profileStore.nextProfileNumber = Number(id.slice("profile-".length)) + 1;
+  profileStore.activeProfileId = id;
+  if (!saveProfiles()) {
+    profileStore.profiles.pop();
+    profileStore.activeProfileId = previousProfileId;
+    return false;
+  }
+  profileCreationPending = false;
+  profileCreationId++;
+  progress = { version: 2, cards: profile.cards };
+  lessonAnswerRevealed = false;
+  reviewSessionCards = [];
+  reviewSessionIndex = 0;
+  reviewAnswerRevealed = false;
+  reviewSessionActive = false;
+  document.getElementById("notice").hidden = true;
+  renderProfileMenu();
+  renderStudyHome();
+  return true;
+}
+
+function savePendingProfile() {
+  if (!profileCreationPending) return true;
+  const input = document.getElementById("new-profile-name");
+  const name = input.value.trim();
+  if (!name) {
+    cancelProfileCreation();
+    return true;
+  }
+  if (!createProfile(name)) {
+    if (input.isConnected) input.focus();
+    return false;
+  }
+  return true;
+}
+
+function cancelProfileCreation() {
+  profileCreationPending = false;
+  profileCreationId++;
+  document.getElementById("notice").hidden = true;
+  renderProfileMenu();
+}
+
 function activateProfile(profileId) {
-  if (profileId === profileStore.activeProfileId) return true;
+  if (profileId === profileStore.activeProfileId) {
+    document.getElementById("profile-menu").open = false;
+    return true;
+  }
   const profile = profileStore.profiles.find(item => item.id === profileId);
   if (!profile) {
     showNotice("That study profile could not be found.");
@@ -331,57 +457,14 @@ function activateProfile(profileId) {
   reviewSessionIndex = 0;
   reviewAnswerRevealed = false;
   reviewSessionActive = false;
+  profileCreationPending = false;
+  profileCreationId++;
   renderProfileMenu();
   document.getElementById("profile-menu").open = false;
   document.getElementById("notice").hidden = true;
   renderStudyHome();
   return true;
 }
-
-document.getElementById("profile-switch").addEventListener("click", () => {
-  activateProfile(document.getElementById("profile-select").value);
-});
-document.getElementById("profile-create-form").addEventListener("submit", event => {
-  event.preventDefault();
-  const input = document.getElementById("new-profile-name");
-  const name = input.value.trim();
-  if (!name) {
-    showNotice("Enter a name for the new profile.");
-    input.focus();
-    return;
-  }
-  if (profileStore.profiles.some(profile => profile.name.toLocaleLowerCase() === name.toLocaleLowerCase())) {
-    showNotice("A profile with that name already exists.");
-    input.focus();
-    return;
-  }
-  let id = `profile-${profileStore.nextProfileNumber || profileStore.profiles.length + 1}`;
-  while (profileStore.profiles.some(profile => profile.id === id)) {
-    profileStore.nextProfileNumber = (profileStore.nextProfileNumber || 1) + 1;
-    id = `profile-${profileStore.nextProfileNumber}`;
-  }
-  const profile = { id, name, cards: {} };
-  const previousProfileId = profileStore.activeProfileId;
-  profileStore.profiles.push(profile);
-  profileStore.nextProfileNumber = Number(id.slice("profile-".length)) + 1;
-  profileStore.activeProfileId = id;
-  if (!saveProfiles()) {
-    profileStore.profiles.pop();
-    profileStore.activeProfileId = previousProfileId;
-    return;
-  }
-  progress = { version: 2, cards: profile.cards };
-  lessonAnswerRevealed = false;
-  reviewSessionCards = [];
-  reviewSessionIndex = 0;
-  reviewAnswerRevealed = false;
-  reviewSessionActive = false;
-  input.value = "";
-  document.getElementById("notice").hidden = true;
-  renderProfileMenu();
-  document.getElementById("profile-menu").open = false;
-  renderStudyHome();
-});
 
 document.getElementById("start-reviews").addEventListener("click", () => {
   if (reviewSessionActive) {
@@ -397,6 +480,11 @@ for (const tab of document.querySelectorAll(".study-tab")) {
     navigateToRoute(section === "lessons" ? "#study/lessons" : "#study/reviews");
   });
 }
+document.addEventListener("pointerdown", event => {
+  if (!profileCreationPending || !(event.target instanceof Element)) return;
+  if (event.target.closest(".profile-choice, .profile-add-button, .profile-cancel-button, #new-profile-name")) return;
+  savePendingProfile();
+}, true);
 document.getElementById("reset-progress").onclick = () => {
   const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
   if (!window.confirm(`Reset all lesson progress and review schedules for ${activeProfile.name}?`)) return;

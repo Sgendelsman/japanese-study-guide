@@ -23,18 +23,9 @@
         <button type="button" class="nav-button" data-view="guide">Conjugation guide</button>
       </nav>
       <details id="profile-menu" class="profile-menu">
-        <summary><span id="active-profile-name">Steven</span><span aria-hidden="true">⌄</span></summary>
+        <summary><span id="active-profile-name">Steven</span><span class="profile-chevron" aria-hidden="true"></span></summary>
         <div class="profile-popover">
-          <label for="profile-select">Switch profile</label>
-          <div class="profile-switch-row">
-            <select id="profile-select"></select>
-            <button id="profile-switch" type="button" class="secondary-button">Switch</button>
-          </div>
-          <form id="profile-create-form" class="profile-create-form">
-            <label for="new-profile-name">Add a profile</label>
-            <input id="new-profile-name" type="text" maxlength="40" autocomplete="off" placeholder="Name">
-            <button id="profile-create" type="submit" class="secondary-button">Add profile</button>
-          </form>
+          <div id="profile-list" class="profile-list" role="list" aria-label="Profiles"></div>
         </div>
       </details>
     </div>
