@@ -606,7 +606,9 @@ function renderDetail(card, parent) {
     const reading = addSection(parent, "Reading");
     reading.append(element("p", "meaning japanese-reading kana-reading", card.reading), element("p", "detail-romaji", romanized(card.reading)));
   }
-  if (card.type === "word" && card.categories.includes("N5")) addPitchAccent(parent, card.pitchAccent);
+  if (card.type === "word" && card.categories.some(category => jlptLevels.includes(category))) {
+    addPitchAccent(parent, card.pitchAccent);
+  }
   if (card.meaning) addSection(parent, "Meaning").append(element("p", "meaning", card.meaning));
   if (card.usage) addSection(parent, "Usage").append(element("p", "meaning", card.usage));
   if (card.example) addSection(parent, "Example").append(element("p", "meaning", card.example));

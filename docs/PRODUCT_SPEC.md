@@ -16,7 +16,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - A card is a kanji card or a word card.
 - Kanji cards show available on'yomi and kun'yomi, readings in romaji, meanings, and links to deck words containing the character.
 - Word cards show supplied readings and meanings, readings in romaji, links to kanji in the word, and a kanji-specific reading when the source allows it to be matched.
-- N5 word cards show sourced pitch-accent types and a mora-by-mora high/low contour when available. Missing readings are identified without inferring an accent.
+- JLPT word cards show sourced pitch-accent types and a mora-by-mora high/low contour when available. Missing readings are identified without inferring an accent.
 - Verb cards include the supplied conjugation forms.
 - Cards can be browsed, searched, filtered by JLPT/category and card type, and opened by stable URL fragment links. Linked cards are navigable.
 

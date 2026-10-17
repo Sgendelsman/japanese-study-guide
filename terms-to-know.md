@@ -689,357 +689,357 @@ Kanshudo JLPT groupings are estimates, not official test lists. Characters follo
 
 ### Vocabulary
 
-**会話.** **Reading:** かいわ. **Meaning:** conversation. **Example:** 日本語で会話します。 (We converse in Japanese.)
+**会話.** **Reading:** かいわ. **Meaning:** conversation. **Example:** 日本語で会話します。 (We converse in Japanese.) | **Pitch accent:** かいわ: 0 [L-H-H].
 
-**会社.** **Reading:** かいしゃ. **Meaning:** company. **Example:** 会社で働いています。 (I work at a company.)
+**会社.** **Reading:** かいしゃ. **Meaning:** company. **Example:** 会社で働いています。 (I work at a company.) | **Pitch accent:** かいしゃ: 0 [L-H-H].
 
-**近所.** **Reading:** きんじょ. **Meaning:** neighborhood; nearby area. **Example:** 近所に店があります。 (There is a shop nearby.)
+**近所.** **Reading:** きんじょ. **Meaning:** neighborhood; nearby area. **Example:** 近所に店があります。 (There is a shop nearby.) | **Pitch accent:** きんじょ: 1 [H-L-L].
 
-**作文.** **Reading:** さくぶん. **Meaning:** composition; essay. **Example:** 作文を書きました。 (I wrote a composition.)
+**作文.** **Reading:** さくぶん. **Meaning:** composition; essay. **Example:** 作文を書きました。 (I wrote a composition.) | **Pitch accent:** さくぶん: unavailable.
 
-**思い出.** **Reading:** おもいで. **Meaning:** memory; recollection. **Example:** 旅行の思い出です。 (It's a memory from a trip.)
+**思い出.** **Reading:** おもいで. **Meaning:** memory; recollection. **Example:** 旅行の思い出です。 (It's a memory from a trip.) | **Pitch accent:** おもいで: unavailable.
 
 <!-- BEGIN GENERATED PER-KANJI VOCAB -->
 
-**宣言 [言].** **Reading:** せんげん. **Meaning:** declaration; proclamation; announcement. **Usage:** common dictionary example.
+**宣言 [言].** **Reading:** せんげん. **Meaning:** declaration; proclamation; announcement. **Usage:** common dictionary example | **Pitch accent:** せんげん: 3 [L-H-H-L].
 
-**投手 [手].** **Reading:** とうしゅ. **Meaning:** pitcher. **Usage:** common dictionary example.
+**投手 [手].** **Reading:** とうしゅ. **Meaning:** pitcher. **Usage:** common dictionary example | **Pitch accent:** とうしゅ: 1 [H-L-L].
 
-**自由 [自].** **Reading:** じゆう. **Meaning:** freedom; liberty. **Usage:** common dictionary example.
+**自由 [自].** **Reading:** じゆう. **Meaning:** freedom; liberty. **Usage:** common dictionary example | **Pitch accent:** じゆう: 2 [L-H-L].
 
-**患者 [者].** **Reading:** かんじゃ. **Meaning:** patient. **Usage:** common dictionary example.
+**患者 [者].** **Reading:** かんじゃ. **Meaning:** patient. **Usage:** common dictionary example | **Pitch accent:** かんじゃ: 0 [L-H-H].
 
-**事務所 [事].** **Reading:** じむしょ. **Meaning:** office. **Usage:** common dictionary example.
+**事務所 [事].** **Reading:** じむしょ. **Meaning:** office. **Usage:** common dictionary example | **Pitch accent:** じむしょ: 2 [L-H-L].
 
-**意思 [思].** **Reading:** いし. **Meaning:** intention; wish; purpose; mind (to do). **Usage:** common dictionary example.
+**意思 [思].** **Reading:** いし. **Meaning:** intention; wish; purpose; mind (to do). **Usage:** common dictionary example | **Pitch accent:** いし: 1 [H-L].
 
-**総会 [会].** **Reading:** そうかい. **Meaning:** general meeting. **Usage:** common dictionary example.
+**総会 [会].** **Reading:** そうかい. **Meaning:** general meeting. **Usage:** common dictionary example | **Pitch accent:** そうかい: 0 [L-H-H-H].
 
-**家族 [家].** **Reading:** かぞく. **Meaning:** family. **Usage:** common dictionary example.
+**家族 [家].** **Reading:** かぞく. **Meaning:** family. **Usage:** common dictionary example | **Pitch accent:** かぞく: 1 [H-L-L].
 
-**目的 [的].** **Reading:** もくてき. **Meaning:** purpose; goal; aim; objective; intention; motive. **Usage:** common dictionary example.
+**目的 [的].** **Reading:** もくてき. **Meaning:** purpose; goal; aim; objective; intention; motive. **Usage:** common dictionary example | **Pitch accent:** もくてき: 0 [L-H-H-H].
 
-**方法 [方].** **Reading:** ほうほう. **Meaning:** method; way; manner; process; procedure; means; measure. **Usage:** common dictionary example.
+**方法 [方].** **Reading:** ほうほう. **Meaning:** method; way; manner; process; procedure; means; measure. **Usage:** common dictionary example | **Pitch accent:** ほうほう: 0 [L-H-H-H].
 
-**地球 [地].** **Reading:** ちきゅう. **Meaning:** Earth; the globe. **Usage:** common dictionary example.
+**地球 [地].** **Reading:** ちきゅう. **Meaning:** Earth; the globe. **Usage:** common dictionary example | **Pitch accent:** ちきゅう: 0 [L-H-H].
 
-**目的 [目].** **Reading:** もくてき. **Meaning:** purpose; goal; aim; objective; intention; motive. **Usage:** common dictionary example.
+**目的 [目].** **Reading:** もくてき. **Meaning:** purpose; goal; aim; objective; intention; motive. **Usage:** common dictionary example | **Pitch accent:** もくてき: 0 [L-H-H-H].
 
-**工場 [場].** **Reading:** こうじょう. **Meaning:** factory; plant; mill; workshop. **Usage:** common dictionary example.
+**工場 [場].** **Reading:** こうじょう. **Meaning:** factory; plant; mill; workshop. **Usage:** common dictionary example | **Pitch accent:** こうじょう: 3 [L-H-H-L].
 
-**時代 [代].** **Reading:** じだい. **Meaning:** period; epoch; era; age; the times; those days; oldness; ancientness; antiquity; antique; period piece. **Usage:** common dictionary example.
+**時代 [代].** **Reading:** じだい. **Meaning:** period; epoch; era; age; the times; those days; oldness; ancientness; antiquity; antique; period piece. **Usage:** common dictionary example | **Pitch accent:** じだい: 0 [L-H-H].
 
-**私立 [私].** **Reading:** しりつ. **Meaning:** private (establishment). **Usage:** common dictionary example.
+**私立 [私].** **Reading:** しりつ. **Meaning:** private (establishment). **Usage:** common dictionary example | **Pitch accent:** しりつ: 1 [H-L-L].
 
-**連立 [立].** **Reading:** れんりつ. **Meaning:** coalition; alliance; union; standing side-by-side. **Usage:** common dictionary example.
+**連立 [立].** **Reading:** れんりつ. **Meaning:** coalition; alliance; union; standing side-by-side. **Usage:** common dictionary example | **Pitch accent:** れんりつ: 0 [L-H-H-H].
 
-**動物 [物].** **Reading:** どうぶつ. **Meaning:** animal. **Usage:** common dictionary example.
+**動物 [物].** **Reading:** どうぶつ. **Meaning:** animal. **Usage:** common dictionary example | **Pitch accent:** どうぶつ: 0 [L-H-H-H].
 
-**水田 [田].** **Reading:** すいでん. **Meaning:** (water-filled) paddy field. **Usage:** common dictionary example.
+**水田 [田].** **Reading:** すいでん. **Meaning:** (water-filled) paddy field. **Usage:** common dictionary example | **Pitch accent:** すいでん: 0 [L-H-H-H].
 
-**具体的 [体].** **Reading:** ぐたいてき. **Meaning:** concrete; definite; specific; material; substantial. **Usage:** common dictionary example.
+**具体的 [体].** **Reading:** ぐたいてき. **Meaning:** concrete; definite; specific; material; substantial. **Usage:** common dictionary example | **Pitch accent:** ぐたいてき: 0 [L-H-H-H-H].
 
-**自動車 [動].** **Reading:** じどうしゃ. **Meaning:** car; automobile; motorcar; motor vehicle; auto. **Usage:** common dictionary example.
+**自動車 [動].** **Reading:** じどうしゃ. **Meaning:** car; automobile; motorcar; motor vehicle; auto. **Usage:** common dictionary example | **Pitch accent:** じどうしゃ: 2 [L-H-L-L].
 
-**社会党 [社].** **Reading:** しゃかいとう. **Meaning:** Socialist Party. **Usage:** common dictionary example.
+**社会党 [社].** **Reading:** しゃかいとう. **Meaning:** Socialist Party. **Usage:** common dictionary example | **Pitch accent:** しゃかいとう: 0 [L-H-H-H-H].
 
-**知事 [知].** **Reading:** ちじ. **Meaning:** prefectural governor. **Usage:** common dictionary example.
+**知事 [知].** **Reading:** ちじ. **Meaning:** prefectural governor. **Usage:** common dictionary example | **Pitch accent:** ちじ: 1 [H-L].
 
-**理事 [理].** **Reading:** りじ. **Meaning:** director; trustee. **Usage:** common dictionary example.
+**理事 [理].** **Reading:** りじ. **Meaning:** director; trustee. **Usage:** common dictionary example | **Pitch accent:** りじ: 1 [H-L].
 
-**同市 [同].** **Reading:** どうし. **Meaning:** same city. **Usage:** common dictionary example.
+**同市 [同].** **Reading:** どうし. **Meaning:** same city. **Usage:** common dictionary example | **Pitch accent:** どうし: 1 [H-L-L].
 
-**関心 [心].** **Reading:** かんしん. **Meaning:** concern; interest. **Usage:** common dictionary example.
+**関心 [心].** **Reading:** かんしん. **Meaning:** concern; interest. **Usage:** common dictionary example | **Pitch accent:** かんしん: 0 [L-H-H-H].
 
-**発言 [発].** **Reading:** はつげん. **Meaning:** statement; remark; observation; utterance; speech; proposal. **Usage:** common dictionary example.
+**発言 [発].** **Reading:** はつげん. **Meaning:** statement; remark; observation; utterance; speech; proposal. **Usage:** common dictionary example | **Pitch accent:** はつげん: 0 [L-H-H-H].
 
-**作業 [作].** **Reading:** さぎょう. **Meaning:** work; operation; task. **Usage:** common dictionary example.
+**作業 [作].** **Reading:** さぎょう. **Meaning:** work; operation; task. **Usage:** common dictionary example | **Pitch accent:** さぎょう: 1 [H-L-L].
 
-**新聞 [新].** **Reading:** しんぶん. **Meaning:** newspaper. **Usage:** common dictionary example.
+**新聞 [新].** **Reading:** しんぶん. **Meaning:** newspaper. **Usage:** common dictionary example | **Pitch accent:** しんぶん: 0 [L-H-H-H].
 
-**世界 [世].** **Reading:** せかい. **Meaning:** the world; society; the universe; sphere; circle; world; world-renowned; world-famous; realm governed by one Buddha; space. **Usage:** common dictionary example.
+**世界 [世].** **Reading:** せかい. **Meaning:** the world; society; the universe; sphere; circle; world; world-renowned; world-famous; realm governed by one Buddha; space. **Usage:** common dictionary example | **Pitch accent:** せかい: 1 [H-L-L].
 
-**制度 [度].** **Reading:** せいど. **Meaning:** system; institution; organization; organisation. **Usage:** common dictionary example.
+**制度 [度].** **Reading:** せいど. **Meaning:** system; institution; organization; organisation. **Usage:** common dictionary example | **Pitch accent:** せいど: 1 [H-L-L].
 
-**明らか [明].** **Reading:** あきらか. **Meaning:** clear; obvious; evident; plain; definite; bright; light. **Usage:** common dictionary example.
+**明らか [明].** **Reading:** あきらか. **Meaning:** clear; obvious; evident; plain; definite; bright; light. **Usage:** common dictionary example | **Pitch accent:** あきらか: unavailable.
 
-**協力 [力].** **Reading:** きょうりょく. **Meaning:** cooperation; collaboration; help; support. **Usage:** common dictionary example.
+**協力 [力].** **Reading:** きょうりょく. **Meaning:** cooperation; collaboration; help; support. **Usage:** common dictionary example | **Pitch accent:** きょうりょく: 0 [L-H-H-H].
 
-**意味 [意].** **Reading:** いみ. **Meaning:** meaning; significance; sense. **Usage:** common dictionary example.
+**意味 [意].** **Reading:** いみ. **Meaning:** meaning; significance; sense. **Usage:** common dictionary example | **Pitch accent:** いみ: 1 [H-L].
 
-**費用 [用].** **Reading:** ひよう. **Meaning:** cost; expense. **Usage:** common dictionary example.
+**費用 [用].** **Reading:** ひよう. **Meaning:** cost; expense. **Usage:** common dictionary example | **Pitch accent:** ひよう: 1 [H-L-L].
 
-**喪主 [主].** **Reading:** もしゅ. **Meaning:** chief mourner. **Usage:** common dictionary example.
+**喪主 [主].** **Reading:** もしゅ. **Meaning:** chief mourner. **Usage:** common dictionary example | **Pitch accent:** もしゅ: unavailable.
 
-**通信 [通].** **Reading:** つうしん. **Meaning:** correspondence; communication; transmission; news; signal; telecommunications. **Usage:** common dictionary example.
+**通信 [通].** **Reading:** つうしん. **Meaning:** correspondence; communication; transmission; news; signal; telecommunications. **Usage:** common dictionary example | **Pitch accent:** つうしん: 0 [L-H-H-H].
 
-**文化 [文].** **Reading:** ぶんか. **Meaning:** culture; civilization; civilisation; Bunka era (1804.2.11-1818.4.22). **Usage:** common dictionary example.
+**文化 [文].** **Reading:** ぶんか. **Meaning:** culture; civilization; civilisation; Bunka era (1804.2.11-1818.4.22). **Usage:** common dictionary example | **Pitch accent:** ぶんか: 1 [H-L-L].
 
-**部屋 [屋].** **Reading:** へや. **Meaning:** room; chamber; apartment; flat; pad; stable. **Usage:** common dictionary example.
+**部屋 [屋].** **Reading:** へや. **Meaning:** room; chamber; apartment; flat; pad; stable. **Usage:** common dictionary example | **Pitch accent:** へや: 2 [L-H].
 
-**農業 [業].** **Reading:** のうぎょう. **Meaning:** agriculture; farming. **Usage:** common dictionary example.
+**農業 [業].** **Reading:** のうぎょう. **Meaning:** agriculture; farming. **Usage:** common dictionary example | **Pitch accent:** のうぎょう: 1 [H-L-L-L].
 
-**維持 [持].** **Reading:** いじ. **Meaning:** maintenance; preservation; improvement. **Usage:** common dictionary example.
+**維持 [持].** **Reading:** いじ. **Meaning:** maintenance; preservation; improvement. **Usage:** common dictionary example | **Pitch accent:** いじ: 1 [H-L].
 
-**北海道 [道].** **Reading:** ほっかいどう. **Meaning:** Hokkaido (island, prefectural-level administrative unit). **Usage:** common dictionary example.
+**北海道 [道].** **Reading:** ほっかいどう. **Meaning:** Hokkaido (island, prefectural-level administrative unit). **Usage:** common dictionary example | **Pitch accent:** ほっかいどう: 3 [L-H-H-L-L-L].
 
-**自身 [身].** **Reading:** じしん. **Meaning:** (one's) self; oneself; yourself; himself; herself. **Usage:** common dictionary example.
+**自身 [身].** **Reading:** じしん. **Meaning:** (one's) self; oneself; yourself; himself; herself. **Usage:** common dictionary example | **Pitch accent:** じしん: 1 [H-L-L].
 
-**不況 [不].** **Reading:** ふきょう. **Meaning:** (economic) depression; recession; slump. **Usage:** common dictionary example.
+**不況 [不].** **Reading:** ふきょう. **Meaning:** (economic) depression; recession; slump. **Usage:** common dictionary example | **Pitch accent:** ふきょう: 0 [L-H-H].
 
-**人口 [口].** **Reading:** じんこう. **Meaning:** population; common talk. **Usage:** common dictionary example.
+**人口 [口].** **Reading:** じんこう. **Meaning:** population; common talk. **Usage:** common dictionary example | **Pitch accent:** じんこう: 0 [L-H-H-H].
 
-**多数 [多].** **Reading:** たすう. **Meaning:** large number (of); many; majority. **Usage:** common dictionary example.
+**多数 [多].** **Reading:** たすう. **Meaning:** large number (of); many; majority. **Usage:** common dictionary example | **Pitch accent:** たすう: 2 [L-H-L].
 
-**野球 [野].** **Reading:** やきゅう. **Meaning:** baseball. **Usage:** common dictionary example.
+**野球 [野].** **Reading:** やきゅう. **Meaning:** baseball. **Usage:** common dictionary example | **Pitch accent:** やきゅう: 0 [L-H-H].
 
-**考え [考].** **Reading:** かんがえ. **Meaning:** thinking; thought; view; opinion; concept; idea; notion; imagination; intention; plan; design; consideration; judgement; deliberation; reflection; wish; hope; expectation. **Usage:** common dictionary example.
+**考え [考].** **Reading:** かんがえ. **Meaning:** thinking; thought; view; opinion; concept; idea; notion; imagination; intention; plan; design; consideration; judgement; deliberation; reflection; wish; hope; expectation. **Usage:** common dictionary example | **Pitch accent:** かんがえ: unavailable.
 
-**開発 [開].** **Reading:** かいはつ. **Meaning:** development; cultivation; application; exploitation (of resources). **Usage:** common dictionary example.
+**開発 [開].** **Reading:** かいはつ. **Meaning:** development; cultivation; application; exploitation (of resources). **Usage:** common dictionary example | **Pitch accent:** かいはつ: 0 [L-H-H-H].
 
-**教授 [教].** **Reading:** きょうじゅ. **Meaning:** professor; teaching; instruction. **Usage:** common dictionary example.
+**教授 [教].** **Reading:** きょうじゅ. **Meaning:** professor; teaching; instruction. **Usage:** common dictionary example | **Pitch accent:** きょうじゅ: 0 [L-H-H].
 
-**最近 [近].** **Reading:** さいきん. **Meaning:** recently; lately; these days; nowadays; right now; nearest; closest. **Usage:** common dictionary example.
+**最近 [近].** **Reading:** さいきん. **Meaning:** recently; lately; these days; nowadays; right now; nearest; closest. **Usage:** common dictionary example | **Pitch accent:** さいきん: 0 [L-H-H-H].
 
-**以来 [以].** **Reading:** いらい. **Meaning:** since; henceforth; ever since. **Usage:** common dictionary example.
+**以来 [以].** **Reading:** いらい. **Meaning:** since; henceforth; ever since. **Usage:** common dictionary example | **Pitch accent:** いらい: 1 [H-L-L].
 
-**訪問 [問].** **Reading:** ほうもん. **Meaning:** call; visit. **Usage:** common dictionary example.
+**訪問 [問].** **Reading:** ほうもん. **Meaning:** call; visit. **Usage:** common dictionary example | **Pitch accent:** ほうもん: 0 [L-H-H-H].
 
-**改正 [正].** **Reading:** かいせい. **Meaning:** revision; amendment; alteration. **Usage:** common dictionary example.
+**改正 [正].** **Reading:** かいせい. **Meaning:** revision; amendment; alteration. **Usage:** common dictionary example | **Pitch accent:** かいせい: 0 [L-H-H-H].
 
-**写真 [真].** **Reading:** しゃしん. **Meaning:** photograph; photo; picture; photography; moving picture; movie. **Usage:** common dictionary example.
+**写真 [真].** **Reading:** しゃしん. **Meaning:** photograph; photo; picture; photography; moving picture; movie. **Usage:** common dictionary example | **Pitch accent:** しゃしん: 0 [L-H-H].
 
-**意味 [味].** **Reading:** いみ. **Meaning:** meaning; significance; sense. **Usage:** common dictionary example.
+**意味 [味].** **Reading:** いみ. **Meaning:** meaning; significance; sense. **Usage:** common dictionary example | **Pitch accent:** いみ: 1 [H-L].
 
-**業界 [界].** **Reading:** ぎょうかい. **Meaning:** business world; business circles; (the) industry. **Usage:** common dictionary example.
+**業界 [界].** **Reading:** ぎょうかい. **Meaning:** business world; business circles; (the) industry. **Usage:** common dictionary example | **Pitch accent:** ぎょうかい: 0 [L-H-H-H].
 
-**無料 [無].** **Reading:** むりょう. **Meaning:** free (of charge); gratuitous. **Usage:** common dictionary example.
+**無料 [無].** **Reading:** むりょう. **Meaning:** free (of charge); gratuitous. **Usage:** common dictionary example | **Pitch accent:** むりょう: 0 [L-H-H].
 
-**少し [少].** **Reading:** すこし. **Meaning:** a little; a bit; a small amount; a few; some; slightly; somewhat; a little while; a short time; a moment; a minute; a little way; a short distance. **Usage:** common dictionary example.
+**少し [少].** **Reading:** すこし. **Meaning:** a little; a bit; a small amount; a few; some; slightly; somewhat; a little while; a short time; a moment; a minute; a little way; a short distance. **Usage:** common dictionary example | **Pitch accent:** すこし: unavailable.
 
-**海外 [海].** **Reading:** かいがい. **Meaning:** foreign; abroad; overseas. **Usage:** common dictionary example.
+**海外 [海].** **Reading:** かいがい. **Meaning:** foreign; abroad; overseas. **Usage:** common dictionary example | **Pitch accent:** かいがい: 1 [H-L-L-L].
 
-**大切 [切].** **Reading:** たいせつ. **Meaning:** important; significant; serious; crucial; precious; valuable; dear; cherished; beloved; careful. **Usage:** common dictionary example.
+**大切 [切].** **Reading:** たいせつ. **Meaning:** important; significant; serious; crucial; precious; valuable; dear; cherished; beloved; careful. **Usage:** common dictionary example | **Pitch accent:** たいせつ: 0 [L-H-H-H].
 
-**重要 [重].** **Reading:** じゅうよう. **Meaning:** important; essential; significant; major; key; principal. **Usage:** common dictionary example.
+**重要 [重].** **Reading:** じゅうよう. **Meaning:** important; essential; significant; major; key; principal. **Usage:** common dictionary example | **Pitch accent:** じゅうよう: 0 [L-H-H-H].
 
-**集団 [集].** **Reading:** しゅうだん. **Meaning:** group; mass. **Usage:** common dictionary example.
+**集団 [集].** **Reading:** しゅうだん. **Meaning:** group; mass. **Usage:** common dictionary example | **Pitch accent:** しゅうだん: 0 [L-H-H-H].
 
-**委員 [員].** **Reading:** いいん. **Meaning:** committee member. **Usage:** common dictionary example.
+**委員 [員].** **Reading:** いいん. **Meaning:** committee member. **Usage:** common dictionary example | **Pitch accent:** いいん: 1 [H-L-L].
 
-**公園 [公].** **Reading:** こうえん. **Meaning:** (public) park. **Usage:** common dictionary example.
+**公園 [公].** **Reading:** こうえん. **Meaning:** (public) park. **Usage:** common dictionary example | **Pitch accent:** こうえん: 0 [L-H-H-H].
 
-**映画 [画].** **Reading:** えいが. **Meaning:** movie; film; motion picture. **Usage:** common dictionary example.
+**映画 [画].** **Reading:** えいが. **Meaning:** movie; film; motion picture. **Usage:** common dictionary example | **Pitch accent:** えいが: 1 [H-L-L].
 
-**脳死 [死].** **Reading:** のうし. **Meaning:** brain death. **Usage:** common dictionary example.
+**脳死 [死].** **Reading:** のうし. **Meaning:** brain death. **Usage:** common dictionary example | **Pitch accent:** のうし: unavailable.
 
-**安全 [安].** **Reading:** あんぜん. **Meaning:** safety; security. **Usage:** common dictionary example.
+**安全 [安].** **Reading:** あんぜん. **Meaning:** safety; security. **Usage:** common dictionary example | **Pitch accent:** あんぜん: 0 [L-H-H-H].
 
-**母親 [親].** **Reading:** ははおや. **Meaning:** mother. **Usage:** common dictionary example.
+**母親 [親].** **Reading:** ははおや. **Meaning:** mother. **Usage:** common dictionary example | **Pitch accent:** ははおや: 0 [L-H-H-H].
 
-**強化 [強].** **Reading:** きょうか. **Meaning:** strengthening; intensifying; reinforcement; enhancement; solidification. **Usage:** common dictionary example.
+**強化 [強].** **Reading:** きょうか. **Meaning:** strengthening; intensifying; reinforcement; enhancement; solidification. **Usage:** common dictionary example | **Pitch accent:** きょうか: 1 [H-L-L].
 
-**大使 [使].** **Reading:** たいし. **Meaning:** ambassador. **Usage:** common dictionary example.
+**大使 [使].** **Reading:** たいし. **Meaning:** ambassador. **Usage:** common dictionary example | **Pitch accent:** たいし: 1 [H-L-L].
 
-**北朝鮮 [朝].** **Reading:** きたちょうせん. **Meaning:** North Korea. **Usage:** common dictionary example.
+**北朝鮮 [朝].** **Reading:** きたちょうせん. **Meaning:** North Korea. **Usage:** common dictionary example | **Pitch accent:** きたちょうせん: unavailable.
 
-**課題 [題].** **Reading:** かだい. **Meaning:** subject; theme; issue; matter; homework; assignment; problem (that needs solving); task; challenge; question; route (in climbing, bouldering, etc.); problem. **Usage:** common dictionary example.
+**課題 [題].** **Reading:** かだい. **Meaning:** subject; theme; issue; matter; homework; assignment; problem (that needs solving); task; challenge; question; route (in climbing, bouldering, etc.); problem. **Usage:** common dictionary example | **Pitch accent:** かだい: 0 [L-H-H].
 
-**仕事 [仕].** **Reading:** しごと. **Meaning:** work; job; labor; labour; business; task; assignment; occupation; employment. **Usage:** common dictionary example.
+**仕事 [仕].** **Reading:** しごと. **Meaning:** work; job; labor; labour; business; task; assignment; occupation; employment. **Usage:** common dictionary example | **Pitch accent:** しごと: 0 [L-H-H].
 
-**東京 [京].** **Reading:** とうきょう. **Meaning:** Tokyo. **Usage:** common dictionary example.
+**東京 [京].** **Reading:** とうきょう. **Meaning:** Tokyo. **Usage:** common dictionary example | **Pitch accent:** とうきょう: 0 [L-H-H-H].
 
-**不足 [足].** **Reading:** ふそく. **Meaning:** insufficiency; deficiency; shortage; lack; scarcity; deficit; dissatisfaction; discontent; complaint. **Usage:** common dictionary example.
+**不足 [足].** **Reading:** ふそく. **Meaning:** insufficiency; deficiency; shortage; lack; scarcity; deficit; dissatisfaction; discontent; complaint. **Usage:** common dictionary example | **Pitch accent:** ふそく: 0 [L-H-H].
 
-**商品 [品].** **Reading:** しょうひん. **Meaning:** commodity; article of commerce; goods; stock; merchandise. **Usage:** common dictionary example.
+**商品 [品].** **Reading:** しょうひん. **Meaning:** commodity; article of commerce; goods; stock; merchandise. **Usage:** common dictionary example | **Pitch accent:** しょうひん: 1 [H-L-L-L].
 
-**決着 [着].** **Reading:** けっちゃく. **Meaning:** conclusion; decision; end; settlement. **Usage:** common dictionary example.
+**決着 [着].** **Reading:** けっちゃく. **Meaning:** conclusion; decision; end; settlement. **Usage:** common dictionary example | **Pitch accent:** けっちゃく: 0 [L-H-H-H].
 
-**告別 [別].** **Reading:** こくべつ. **Meaning:** farewell; leave-taking. **Usage:** common dictionary example.
+**告別 [別].** **Reading:** こくべつ. **Meaning:** farewell; leave-taking. **Usage:** common dictionary example | **Pitch accent:** こくべつ: unavailable.
 
-**音楽 [音].** **Reading:** おんがく. **Meaning:** music. **Usage:** common dictionary example.
+**音楽 [音].** **Reading:** おんがく. **Meaning:** music. **Usage:** common dictionary example | **Pitch accent:** おんがく: 1 [H-L-L-L].
 
-**地元 [元].** **Reading:** じもと. **Meaning:** home area; home town; local. **Usage:** common dictionary example.
+**地元 [元].** **Reading:** じもと. **Meaning:** home area; home town; local. **Usage:** common dictionary example | **Pitch accent:** じもと: 0 [L-H-H].
 
-**特に [特].** **Reading:** とくに. **Meaning:** particularly; especially; in particular; expressly. **Usage:** common dictionary example.
+**特に [特].** **Reading:** とくに. **Meaning:** particularly; especially; in particular; expressly. **Usage:** common dictionary example | **Pitch accent:** とくに: unavailable.
 
-**台風 [風].** **Reading:** たいふう. **Meaning:** typhoon; hurricane. **Usage:** common dictionary example.
+**台風 [風].** **Reading:** たいふう. **Meaning:** typhoon; hurricane. **Usage:** common dictionary example | **Pitch accent:** たいふう: 3 [L-H-H-L].
 
-**深夜 [夜].** **Reading:** しんや. **Meaning:** late at night. **Usage:** common dictionary example.
+**深夜 [夜].** **Reading:** しんや. **Meaning:** late at night. **Usage:** common dictionary example | **Pitch accent:** しんや: 1 [H-L-L].
 
-**空港 [空].** **Reading:** くうこう. **Meaning:** airport. **Usage:** common dictionary example.
+**空港 [空].** **Reading:** くうこう. **Meaning:** airport. **Usage:** common dictionary example | **Pitch accent:** くうこう: 0 [L-H-H-H].
 
-**有効 [有].** **Reading:** ゆうこう. **Meaning:** valid; effective; yuko (judo). **Usage:** common dictionary example.
+**有効 [有].** **Reading:** ゆうこう. **Meaning:** valid; effective; yuko (judo). **Usage:** common dictionary example | **Pitch accent:** ゆうこう: 0 [L-H-H-H].
 
-**起訴 [起].** **Reading:** きそ. **Meaning:** prosecution; indictment. **Usage:** common dictionary example.
+**起訴 [起].** **Reading:** きそ. **Meaning:** prosecution; indictment. **Usage:** common dictionary example | **Pitch accent:** きそ: 2 [L-H].
 
-**運動 [運].** **Reading:** うんどう. **Meaning:** exercise; physical training; workout; sports; athletics; appeal; campaign; drive; crusade; movement; lobbying; motion. **Usage:** common dictionary example.
+**運動 [運].** **Reading:** うんどう. **Meaning:** exercise; physical training; workout; sports; athletics; appeal; campaign; drive; crusade; movement; lobbying; motion. **Usage:** common dictionary example | **Pitch accent:** うんどう: 0 [L-H-H-H].
 
-**料金 [料].** **Reading:** りょうきん. **Meaning:** fee; charge; fare. **Usage:** common dictionary example.
+**料金 [料].** **Reading:** りょうきん. **Meaning:** fee; charge; fare. **Usage:** common dictionary example | **Pitch accent:** りょうきん: 1 [H-L-L-L].
 
-**音楽 [楽].** **Reading:** おんがく. **Meaning:** music. **Usage:** common dictionary example.
+**音楽 [楽].** **Reading:** おんがく. **Meaning:** music. **Usage:** common dictionary example | **Pitch accent:** おんがく: 1 [H-L-L-L].
 
-**色彩 [色].** **Reading:** しきさい. **Meaning:** colour; color; hue; tints. **Usage:** common dictionary example.
+**色彩 [色].** **Reading:** しきさい. **Meaning:** colour; color; hue; tints. **Usage:** common dictionary example | **Pitch accent:** しきさい: 0 [L-H-H-H].
 
-**帰国 [帰].** **Reading:** きこく. **Meaning:** return to one's country; return to one's hometown. **Usage:** common dictionary example.
+**帰国 [帰].** **Reading:** きこく. **Meaning:** return to one's country; return to one's hometown. **Usage:** common dictionary example | **Pitch accent:** きこく: 0 [L-H-H].
 
-**公定歩合 [歩].** **Reading:** こうていぶあい. **Meaning:** official discount (bank) rate. **Usage:** common dictionary example.
+**公定歩合 [歩].** **Reading:** こうていぶあい. **Meaning:** official discount (bank) rate. **Usage:** common dictionary example | **Pitch accent:** こうていぶあい: unavailable.
 
-**悪化 [悪].** **Reading:** あっか. **Meaning:** deterioration; getting worse; worsening; aggravation; degeneration; corruption. **Usage:** common dictionary example.
+**悪化 [悪].** **Reading:** あっか. **Meaning:** deterioration; getting worse; worsening; aggravation; degeneration; corruption. **Usage:** common dictionary example | **Pitch accent:** あっか: 0 [L-H-H].
 
-**広告 [広].** **Reading:** こうこく. **Meaning:** advertisement; advertising; announcement; notice. **Usage:** common dictionary example.
+**広告 [広].** **Reading:** こうこく. **Meaning:** advertisement; advertising; announcement; notice. **Usage:** common dictionary example | **Pitch accent:** こうこく: 0 [L-H-H-H].
 
-**支店 [店].** **Reading:** してん. **Meaning:** branch office; branch store. **Usage:** common dictionary example.
+**支店 [店].** **Reading:** してん. **Meaning:** branch office; branch store. **Usage:** common dictionary example | **Pitch accent:** してん: 0 [L-H-H].
 
-**市町村 [町].** **Reading:** しちょうそん. **Meaning:** cities, towns and villages; municipalities. **Usage:** common dictionary example.
+**市町村 [町].** **Reading:** しちょうそん. **Meaning:** cities, towns and villages; municipalities. **Usage:** common dictionary example | **Pitch accent:** しちょうそん: 2 [L-H-L-L-L].
 
-**住宅 [住].** **Reading:** じゅうたく. **Meaning:** residence; housing; residential building. **Usage:** common dictionary example.
+**住宅 [住].** **Reading:** じゅうたく. **Meaning:** residence; housing; residential building. **Usage:** common dictionary example | **Pitch accent:** じゅうたく: 0 [L-H-H-H].
 
-**販売 [売].** **Reading:** はんばい. **Meaning:** sale; sales; selling; marketing. **Usage:** common dictionary example.
+**販売 [売].** **Reading:** はんばい. **Meaning:** sale; sales; selling; marketing. **Usage:** common dictionary example | **Pitch accent:** はんばい: 0 [L-H-H-H].
 
-**期待 [待].** **Reading:** きたい. **Meaning:** expectation; anticipation; hope; promising; rising; up-and-coming. **Usage:** common dictionary example.
+**期待 [待].** **Reading:** きたい. **Meaning:** expectation; anticipation; hope; promising; rising; up-and-coming. **Usage:** common dictionary example | **Pitch accent:** きたい: 0 [L-H-H].
 
-**古代 [古].** **Reading:** こだい. **Meaning:** ancient times; distant past; antiquity. **Usage:** common dictionary example.
+**古代 [古].** **Reading:** こだい. **Meaning:** ancient times; distant past; antiquity. **Usage:** common dictionary example | **Pitch accent:** こだい: 1 [H-L-L].
 
-**開始 [始].** **Reading:** かいし. **Meaning:** start; commencement; beginning; initiation. **Usage:** common dictionary example.
+**開始 [始].** **Reading:** かいし. **Meaning:** start; commencement; beginning; initiation. **Usage:** common dictionary example | **Pitch accent:** かいし: 0 [L-H-H].
 
-**最終 [終].** **Reading:** さいしゅう. **Meaning:** last; final; closing; last train (bus, flight, etc.; of the day). **Usage:** common dictionary example.
+**最終 [終].** **Reading:** さいしゅう. **Meaning:** last; final; closing; last train (bus, flight, etc.; of the day). **Usage:** common dictionary example | **Pitch accent:** さいしゅう: 0 [L-H-H-H].
 
-**計画 [計].** **Reading:** けいかく. **Meaning:** plan; project; schedule; scheme; program; programme. **Usage:** common dictionary example.
+**計画 [計].** **Reading:** けいかく. **Meaning:** plan; project; schedule; scheme; program; programme. **Usage:** common dictionary example | **Pitch accent:** けいかく: 0 [L-H-H-H].
 
-**病院 [院].** **Reading:** びょういん. **Meaning:** hospital; clinic; doctor's office; doctor's surgery; infirmary. **Usage:** common dictionary example.
+**病院 [院].** **Reading:** びょういん. **Meaning:** hospital; clinic; doctor's office; doctor's surgery; infirmary. **Usage:** common dictionary example | **Pitch accent:** びょういん: 0 [L-H-H-H].
 
-**放送 [送].** **Reading:** ほうそう. **Meaning:** broadcasting; broadcast; program; announcement. **Usage:** common dictionary example.
+**放送 [送].** **Reading:** ほうそう. **Meaning:** broadcasting; broadcast; program; announcement. **Usage:** common dictionary example | **Pitch accent:** ほうそう: 0 [L-H-H-H].
 
-**家族 [族].** **Reading:** かぞく. **Meaning:** family. **Usage:** common dictionary example.
+**家族 [族].** **Reading:** かぞく. **Meaning:** family. **Usage:** common dictionary example | **Pitch accent:** かぞく: 1 [H-L-L].
 
-**映画 [映].** **Reading:** えいが. **Meaning:** movie; film; motion picture. **Usage:** common dictionary example.
+**映画 [映].** **Reading:** えいが. **Meaning:** movie; film; motion picture. **Usage:** common dictionary example | **Pitch accent:** えいが: 1 [H-L-L].
 
-**売買 [買].** **Reading:** ばいばい. **Meaning:** trade; buying and selling; trafficking (e.g. of humans, arms, drugs); dealing. **Usage:** common dictionary example.
+**売買 [買].** **Reading:** ばいばい. **Meaning:** trade; buying and selling; trafficking (e.g. of humans, arms, drugs); dealing. **Usage:** common dictionary example | **Pitch accent:** ばいばい: 1 [H-L-L-L].
 
-**病院 [病].** **Reading:** びょういん. **Meaning:** hospital; clinic; doctor's office; doctor's surgery; infirmary. **Usage:** common dictionary example.
+**病院 [病].** **Reading:** びょういん. **Meaning:** hospital; clinic; doctor's office; doctor's surgery; infirmary. **Usage:** common dictionary example | **Pitch accent:** びょういん: 0 [L-H-H-H].
 
-**早期 [早].** **Reading:** そうき. **Meaning:** early stage. **Usage:** common dictionary example.
+**早期 [早].** **Reading:** そうき. **Meaning:** early stage. **Usage:** common dictionary example | **Pitch accent:** そうき: 1 [H-L-L].
 
-**質問 [質].** **Reading:** しつもん. **Meaning:** question; inquiry; enquiry. **Usage:** common dictionary example.
+**質問 [質].** **Reading:** しつもん. **Meaning:** question; inquiry; enquiry. **Usage:** common dictionary example | **Pitch accent:** しつもん: 0 [L-H-H-H].
 
-**台湾 [台].** **Reading:** たいわん. **Meaning:** Taiwan. **Usage:** common dictionary example.
+**台湾 [台].** **Reading:** たいわん. **Meaning:** Taiwan. **Usage:** common dictionary example | **Pitch accent:** たいわん: 3 [L-H-H-L].
 
-**教室 [室].** **Reading:** きょうしつ. **Meaning:** classroom; lecture room; department (in a university); class; lessons; course; school (for a particular discipline); teaching establishment. **Usage:** common dictionary example.
+**教室 [室].** **Reading:** きょうしつ. **Meaning:** classroom; lecture room; department (in a university); class; lessons; course; school (for a particular discipline); teaching establishment. **Usage:** common dictionary example | **Pitch accent:** きょうしつ: 0 [L-H-H-H].
 
-**可能 [可].** **Reading:** かのう. **Meaning:** possible; potential; practicable; feasible. **Usage:** common dictionary example.
+**可能 [可].** **Reading:** かのう. **Meaning:** possible; potential; practicable; feasible. **Usage:** common dictionary example | **Pitch accent:** かのう: 0 [L-H-H].
 
-**建設 [建].** **Reading:** けんせつ. **Meaning:** construction; establishment. **Usage:** common dictionary example.
+**建設 [建].** **Reading:** けんせつ. **Meaning:** construction; establishment. **Usage:** common dictionary example | **Pitch accent:** けんせつ: 0 [L-H-H-H].
 
-**転換 [転].** **Reading:** てんかん. **Meaning:** conversion; diversion; changeover; commutation; switchover. **Usage:** common dictionary example.
+**転換 [転].** **Reading:** てんかん. **Meaning:** conversion; diversion; changeover; commutation; switchover. **Usage:** common dictionary example | **Pitch accent:** てんかん: 0 [L-H-H-H].
 
-**医療 [医].** **Reading:** いりょう. **Meaning:** medical treatment; medical care. **Usage:** common dictionary example.
+**医療 [医].** **Reading:** いりょう. **Meaning:** medical treatment; medical care. **Usage:** common dictionary example | **Pitch accent:** いりょう: 1 [H-L-L].
 
-**防止 [止].** **Reading:** ぼうし. **Meaning:** prevention; check. **Usage:** common dictionary example.
+**防止 [止].** **Reading:** ぼうし. **Meaning:** prevention; check. **Usage:** common dictionary example | **Pitch accent:** ぼうし: 0 [L-H-H].
 
-**黒字 [字].** **Reading:** くろじ. **Meaning:** (being in) the black; surplus; black letter. **Usage:** common dictionary example.
+**黒字 [字].** **Reading:** くろじ. **Meaning:** (being in) the black; surplus; black letter. **Usage:** common dictionary example | **Pitch accent:** くろじ: 0 [L-H-H].
 
-**工場 [工].** **Reading:** こうじょう. **Meaning:** factory; plant; mill; workshop. **Usage:** common dictionary example.
+**工場 [工].** **Reading:** こうじょう. **Meaning:** factory; plant; mill; workshop. **Usage:** common dictionary example | **Pitch accent:** こうじょう: 3 [L-H-H-L].
 
-**緊急 [急].** **Reading:** きんきゅう. **Meaning:** urgency; emergency. **Usage:** common dictionary example.
+**緊急 [急].** **Reading:** きんきゅう. **Meaning:** urgency; emergency. **Usage:** common dictionary example | **Pitch accent:** きんきゅう: 0 [L-H-H-H].
 
-**図書館 [図].** **Reading:** としょかん. **Meaning:** library. **Usage:** common dictionary example.
+**図書館 [図].** **Reading:** としょかん. **Meaning:** library. **Usage:** common dictionary example | **Pitch accent:** としょかん: 2 [L-H-L-L].
 
-**黒字 [黒].** **Reading:** くろじ. **Meaning:** (being in) the black; surplus; black letter. **Usage:** common dictionary example.
+**黒字 [黒].** **Reading:** くろじ. **Meaning:** (being in) the black; surplus; black letter. **Usage:** common dictionary example | **Pitch accent:** くろじ: 0 [L-H-H].
 
-**花火 [花].** **Reading:** はなび. **Meaning:** fireworks. **Usage:** common dictionary example.
+**花火 [花].** **Reading:** はなび. **Meaning:** fireworks. **Usage:** common dictionary example | **Pitch accent:** はなび: 1 [H-L-L].
 
-**英語 [英].** **Reading:** えいご. **Meaning:** English (language). **Usage:** common dictionary example.
+**英語 [英].** **Reading:** えいご. **Meaning:** English (language). **Usage:** common dictionary example | **Pitch accent:** えいご: 0 [L-H-H].
 
-**走者 [走].** **Reading:** そうしゃ. **Meaning:** runner; base runner. **Usage:** common dictionary example.
+**走者 [走].** **Reading:** そうしゃ. **Meaning:** runner; base runner. **Usage:** common dictionary example | **Pitch accent:** そうしゃ: 1 [H-L-L].
 
-**青年 [青].** **Reading:** せいねん. **Meaning:** youth; young man. **Usage:** common dictionary example.
+**青年 [青].** **Reading:** せいねん. **Meaning:** youth; young man. **Usage:** common dictionary example | **Pitch accent:** せいねん: 0 [L-H-H-H].
 
-**回答 [答].** **Reading:** かいとう. **Meaning:** reply; answer. **Usage:** common dictionary example.
+**回答 [答].** **Reading:** かいとう. **Meaning:** reply; answer. **Usage:** common dictionary example | **Pitch accent:** かいとう: 0 [L-H-H-H].
 
-**手紙 [紙].** **Reading:** てがみ. **Meaning:** letter; note. **Usage:** common dictionary example.
+**手紙 [紙].** **Reading:** てがみ. **Meaning:** letter; note. **Usage:** common dictionary example | **Pitch accent:** てがみ: 0 [L-H-H].
 
-**歌手 [歌].** **Reading:** かしゅ. **Meaning:** singer. **Usage:** common dictionary example.
+**歌手 [歌].** **Reading:** かしゅ. **Meaning:** singer. **Usage:** common dictionary example | **Pitch accent:** かしゅ: 1 [H-L].
 
-**注目 [注].** **Reading:** ちゅうもく. **Meaning:** notice; attention; observation. **Usage:** common dictionary example.
+**注目 [注].** **Reading:** ちゅうもく. **Meaning:** notice; attention; observation. **Usage:** common dictionary example | **Pitch accent:** ちゅうもく: 0 [L-H-H-H].
 
-**赤字 [赤].** **Reading:** あかじ. **Meaning:** (being in) the red; deficit; red letter; red writing; corrections (by a teacher or proofreader) written in red. **Usage:** common dictionary example.
+**赤字 [赤].** **Reading:** あかじ. **Meaning:** (being in) the red; deficit; red letter; red writing; corrections (by a teacher or proofreader) written in red. **Usage:** common dictionary example | **Pitch accent:** あかじ: 0 [L-H-H].
 
-**今春 [春].** **Reading:** こんしゅん. **Meaning:** this spring; spring this year. **Usage:** common dictionary example.
+**今春 [春].** **Reading:** こんしゅん. **Meaning:** this spring; spring this year. **Usage:** common dictionary example | **Pitch accent:** こんしゅん: unavailable.
 
-**会館 [館].** **Reading:** かいかん. **Meaning:** meeting hall; assembly hall. **Usage:** common dictionary example.
+**会館 [館].** **Reading:** かいかん. **Meaning:** meeting hall; assembly hall. **Usage:** common dictionary example | **Pitch accent:** かいかん: unavailable.
 
-**旅行 [旅].** **Reading:** りょこう. **Meaning:** travel; trip; journey; excursion; tour. **Usage:** common dictionary example.
+**旅行 [旅].** **Reading:** りょこう. **Meaning:** travel; trip; journey; excursion; tour. **Usage:** common dictionary example | **Pitch accent:** りょこう: 0 [L-H-H].
 
-**経験 [験].** **Reading:** けいけん. **Meaning:** experience. **Usage:** common dictionary example.
+**経験 [験].** **Reading:** けいけん. **Meaning:** experience. **Usage:** common dictionary example | **Pitch accent:** けいけん: 0 [L-H-H-H].
 
-**写真 [写].** **Reading:** しゃしん. **Meaning:** photograph; photo; picture; photography; moving picture; movie. **Usage:** common dictionary example.
+**写真 [写].** **Reading:** しゃしん. **Meaning:** photograph; photo; picture; photography; moving picture; movie. **Usage:** common dictionary example | **Pitch accent:** しゃしん: 0 [L-H-H].
 
-**過去 [去].** **Reading:** かこ. **Meaning:** the past; bygone days; one's past (that one would prefer remained secret); past (tense); preterit; preterite; previous life. **Usage:** common dictionary example.
+**過去 [去].** **Reading:** かこ. **Meaning:** the past; bygone days; one's past (that one would prefer remained secret); past (tense); preterit; preterite; previous life. **Usage:** common dictionary example | **Pitch accent:** かこ: 1 [H-L].
 
-**研究 [研].** **Reading:** けんきゅう. **Meaning:** research; study; investigation. **Usage:** common dictionary example.
+**研究 [研].** **Reading:** けんきゅう. **Meaning:** research; study; investigation. **Usage:** common dictionary example | **Pitch accent:** けんきゅう: 0 [L-H-H-H].
 
-**飲食 [飲].** **Reading:** いんしょく. **Meaning:** food and drink; eating and drinking. **Usage:** common dictionary example.
+**飲食 [飲].** **Reading:** いんしょく. **Meaning:** food and drink; eating and drinking. **Usage:** common dictionary example | **Pitch accent:** いんしょく: 1 [H-L-L-L].
 
-**牛肉 [肉].** **Reading:** ぎゅうにく. **Meaning:** beef. **Usage:** common dictionary example.
+**牛肉 [肉].** **Reading:** ぎゅうにく. **Meaning:** beef. **Usage:** common dictionary example | **Pitch accent:** ぎゅうにく: 0 [L-H-H-H].
 
-**制服 [服].** **Reading:** せいふく. **Meaning:** uniform. **Usage:** common dictionary example.
+**制服 [服].** **Reading:** せいふく. **Meaning:** uniform. **Usage:** common dictionary example | **Pitch accent:** せいふく: 0 [L-H-H-H].
 
-**銀行 [銀].** **Reading:** ぎんこう. **Meaning:** bank; banking institution. **Usage:** common dictionary example.
+**銀行 [銀].** **Reading:** ぎんこう. **Meaning:** bank; banking institution. **Usage:** common dictionary example | **Pitch accent:** ぎんこう: 0 [L-H-H-H].
 
-**お茶 [茶].** **Reading:** おちゃ. **Meaning:** tea (esp. green or barley); tea break; teatime; tea ceremony. **Usage:** common dictionary example.
+**お茶 [茶].** **Reading:** おちゃ. **Meaning:** tea (esp. green or barley); tea break; teatime; tea ceremony. **Usage:** common dictionary example | **Pitch accent:** おちゃ: unavailable.
 
-**研究 [究].** **Reading:** けんきゅう. **Meaning:** research; study; investigation. **Usage:** common dictionary example.
+**研究 [究].** **Reading:** けんきゅう. **Meaning:** research; study; investigation. **Usage:** common dictionary example | **Pitch accent:** けんきゅう: 0 [L-H-H-H].
 
-**太平洋 [洋].** **Reading:** たいへいよう. **Meaning:** Pacific Ocean. **Usage:** common dictionary example.
+**太平洋 [洋].** **Reading:** たいへいよう. **Meaning:** Pacific Ocean. **Usage:** common dictionary example | **Pitch accent:** たいへいよう: 3 [L-H-H-L-L-L].
 
-**兄弟 [兄].** **Reading:** きょうだい. **Meaning:** brothers and sisters; siblings; half-siblings; step-siblings; siblings by marriage or adoption; mate; friend. **Usage:** common dictionary example.
+**兄弟 [兄].** **Reading:** きょうだい. **Meaning:** brothers and sisters; siblings; half-siblings; step-siblings; siblings by marriage or adoption; mate; friend. **Usage:** common dictionary example | **Pitch accent:** きょうだい: 1 [H-L-L-L].
 
-**昨秋 [秋].** **Reading:** さくしゅう. **Meaning:** autumn of last year; fall of last year. **Usage:** common dictionary example.
+**昨秋 [秋].** **Reading:** さくしゅう. **Meaning:** autumn of last year; fall of last year. **Usage:** common dictionary example | **Pitch accent:** さくしゅう: unavailable.
 
-**食堂 [堂].** **Reading:** しょくどう. **Meaning:** dining room; dining hall; cafeteria; canteen; messroom; restaurant; eatery; snack bar; diner. **Usage:** common dictionary example.
+**食堂 [堂].** **Reading:** しょくどう. **Meaning:** dining room; dining hall; cafeteria; canteen; messroom; restaurant; eatery; snack bar; diner. **Usage:** common dictionary example | **Pitch accent:** しょくどう: 0 [L-H-H-H].
 
-**週刊 [週].** **Reading:** しゅうかん. **Meaning:** weekly publication. **Usage:** common dictionary example.
+**週刊 [週].** **Reading:** しゅうかん. **Meaning:** weekly publication. **Usage:** common dictionary example | **Pitch accent:** しゅうかん: 0 [L-H-H-H].
 
-**練習 [習].** **Reading:** れんしゅう. **Meaning:** practice; training; drill; (an) exercise; workout. **Usage:** common dictionary example.
+**練習 [習].** **Reading:** れんしゅう. **Meaning:** practice; training; drill; (an) exercise; workout. **Usage:** common dictionary example | **Pitch accent:** れんしゅう: 0 [L-H-H-H].
 
-**試合 [試].** **Reading:** しあい. **Meaning:** match; game; bout; contest. **Usage:** common dictionary example.
+**試合 [試].** **Reading:** しあい. **Meaning:** match; game; bout; contest. **Usage:** common dictionary example | **Pitch accent:** しあい: 0 [L-H-H].
 
-**夏休み [夏].** **Reading:** なつやすみ. **Meaning:** summer vacation; summer holiday. **Usage:** common dictionary example.
+**夏休み [夏].** **Reading:** なつやすみ. **Meaning:** summer vacation; summer holiday. **Usage:** common dictionary example | **Pitch accent:** なつやすみ: unavailable.
 
-**兄弟 [弟].** **Reading:** きょうだい. **Meaning:** brothers and sisters; siblings; half-siblings; step-siblings; siblings by marriage or adoption; mate; friend. **Usage:** common dictionary example.
+**兄弟 [弟].** **Reading:** きょうだい. **Meaning:** brothers and sisters; siblings; half-siblings; step-siblings; siblings by marriage or adoption; mate; friend. **Usage:** common dictionary example | **Pitch accent:** きょうだい: 1 [H-L-L-L].
 
-**野鳥 [鳥].** **Reading:** やちょう. **Meaning:** wild bird. **Usage:** common dictionary example.
+**野鳥 [鳥].** **Reading:** やちょう. **Meaning:** wild bird. **Usage:** common dictionary example | **Pitch accent:** やちょう: 0 [L-H-H].
 
-**盲導犬 [犬].** **Reading:** もうどうけん. **Meaning:** guide dog; seeing-eye dog. **Usage:** common dictionary example.
+**盲導犬 [犬].** **Reading:** もうどうけん. **Meaning:** guide dog; seeing-eye dog. **Usage:** common dictionary example | **Pitch accent:** もうどうけん: 0 [L-H-H-H-H-H].
 
-**夕食 [夕].** **Reading:** ゆうしょく. **Meaning:** evening meal; dinner. **Usage:** common dictionary example.
+**夕食 [夕].** **Reading:** ゆうしょく. **Meaning:** evening meal; dinner. **Usage:** common dictionary example | **Pitch accent:** ゆうしょく: 0 [L-H-H-H].
 
-**魚介類 [魚].** **Reading:** ぎょかいるい. **Meaning:** marine products; seafood; fish and shellfish. **Usage:** common dictionary example.
+**魚介類 [魚].** **Reading:** ぎょかいるい. **Meaning:** marine products; seafood; fish and shellfish. **Usage:** common dictionary example | **Pitch accent:** ぎょかいるい: 2 [L-H-L-L-L].
 
-**借金 [借].** **Reading:** しゃっきん. **Meaning:** debt; loan; liabilities; borrowing money; number of games under the .500 mark. **Usage:** common dictionary example.
+**借金 [借].** **Reading:** しゃっきん. **Meaning:** debt; loan; liabilities; borrowing money; number of games under the .500 mark. **Usage:** common dictionary example | **Pitch accent:** しゃっきん: 3 [L-H-H-L].
 
-**米飯 [飯].** **Reading:** べいはん. **Meaning:** cooked rice. **Usage:** common dictionary example.
+**米飯 [飯].** **Reading:** べいはん. **Meaning:** cooked rice. **Usage:** common dictionary example | **Pitch accent:** べいはん: unavailable.
 
-**駅前 [駅].** **Reading:** えきまえ. **Meaning:** in front of a station. **Usage:** common dictionary example.
+**駅前 [駅].** **Reading:** えきまえ. **Meaning:** in front of a station. **Usage:** common dictionary example | **Pitch accent:** えきまえ: 3 [L-H-H-L].
 
-**昼食 [昼].** **Reading:** ちゅうしょく. **Meaning:** lunch; midday meal. **Usage:** common dictionary example.
+**昼食 [昼].** **Reading:** ちゅうしょく. **Meaning:** lunch; midday meal. **Usage:** common dictionary example | **Pitch accent:** ちゅうしょく: unavailable.
 
-**冬季 [冬].** **Reading:** とうき. **Meaning:** winter season; winter. **Usage:** common dictionary example.
+**冬季 [冬].** **Reading:** とうき. **Meaning:** winter season; winter. **Usage:** common dictionary example | **Pitch accent:** とうき: 1 [H-L-L].
 
-**姉妹 [姉].** **Reading:** しまい. **Meaning:** sisters. **Usage:** common dictionary example.
+**姉妹 [姉].** **Reading:** しまい. **Meaning:** sisters. **Usage:** common dictionary example | **Pitch accent:** しまい: 1 [H-L-L].
 
-**土曜 [曜].** **Reading:** どよう. **Meaning:** Saturday. **Usage:** common dictionary example.
+**土曜 [曜].** **Reading:** どよう. **Meaning:** Saturday. **Usage:** common dictionary example | **Pitch accent:** どよう: 2 [L-H-L].
 
-**漢字 [漢].** **Reading:** かんじ. **Meaning:** kanji; Chinese character. **Usage:** common dictionary example.
+**漢字 [漢].** **Reading:** かんじ. **Meaning:** kanji; Chinese character. **Usage:** common dictionary example | **Pitch accent:** かんじ: 0 [L-H-H].
 
-**牛肉 [牛].** **Reading:** ぎゅうにく. **Meaning:** beef. **Usage:** common dictionary example.
+**牛肉 [牛].** **Reading:** ぎゅうにく. **Meaning:** beef. **Usage:** common dictionary example | **Pitch accent:** ぎゅうにく: 0 [L-H-H-H].
 
-**姉妹 [妹].** **Reading:** しまい. **Meaning:** sisters. **Usage:** common dictionary example.
+**姉妹 [妹].** **Reading:** しまい. **Meaning:** sisters. **Usage:** common dictionary example | **Pitch accent:** しまい: 1 [H-L-L].
 
-**貸出用 [貸].** **Reading:** かしだしよう. **Meaning:** circulation or lending (e.g. library books). **Usage:** common dictionary example.
+**貸出用 [貸].** **Reading:** かしだしよう. **Meaning:** circulation or lending (e.g. library books). **Usage:** common dictionary example | **Pitch accent:** かしだしよう: unavailable.
 
-**勉強 [勉].** **Reading:** べんきょう. **Meaning:** study; diligence; working hard; experience; knowledge; lesson (for the future); discount; price reduction. **Usage:** common dictionary example.
+**勉強 [勉].** **Reading:** べんきょう. **Meaning:** study; diligence; working hard; experience; knowledge; lesson (for the future); discount; price reduction. **Usage:** common dictionary example | **Pitch accent:** べんきょう: 0 [L-H-H-H].
 
 <!-- END GENERATED PER-KANJI VOCAB -->
 
