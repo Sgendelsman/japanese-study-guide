@@ -9,6 +9,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - The app runs locally in a browser and requires no account or network connection for its core features.
 - People can create named local profiles and switch between them.
 - Each profile has separate lesson and review progress. Profile data is stored in that browser's local storage.
+- Study progress can be manually synced as a complete profile collection through Google Drive's private application data folder. If local and Drive copies differ, the user chooses which copy to replace; the app does not merge them.
 - The app starts with a profile named Steven when no profile data exists.
 
 ## Card requirements
@@ -29,7 +30,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - A correct lesson answer marks the card learned and schedules its first review for the next day. An incorrect answer leaves it in the lesson queue.
 - Reviews show due cards and a day-by-day schedule. A correct review doubles the interval; an incorrect review reduces it to one quarter, rounded down, with a one-day minimum.
 - Dates use the browser's local calendar day. Review schedules and lesson progress persist across page reloads for the active profile.
-- Each profile has a Progress tab listing completed lessons and dated review results. Export downloads a JSON backup with that profile's card schedules and study history. Import validates a backup, confirms replacement, then replaces progress for the active profile only; profile names and other profiles are unchanged.
+- Each profile has a Progress tab listing completed lessons and dated review results. Export downloads a JSON backup with that profile's card schedules and study history. Import validates a backup, confirms replacement, then replaces progress for the active profile only; profile names and other profiles are unchanged. Google Drive sync stores all profiles and requires an explicit user action and conflict confirmation.
 - Users can reset only the active profile's study progress.
 
 ## Interface

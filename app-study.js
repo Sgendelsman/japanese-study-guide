@@ -7,6 +7,256 @@ let reviewSessionActive = false;
 let activeStudySection = "lessons";
 let profileCreationPending = false;
 let profileCreationId = 0;
+const googleDriveClientId = window.JAPANESE_STUDY_GOOGLE_CLIENT_ID || "";
+const googleDriveScope = "https://www.googleapis.com/auth/drive.appdata";
+const googleDriveFileName = "japanese-study-profiles-v1.json";
+let googleIdentityScriptPromise = null;
+
+function loadGoogleIdentityScript() {
+  if (window.google?.accounts?.oauth2) return Promise.resolve();
+  if (!googleIdentityScriptPromise) {
+    googleIdentityScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://accounts.google.com/gsi/client";
+      script.async = true;
+      script.onload = () => window.google?.accounts?.oauth2
+        ? resolve()
+        : reject(new Error("Google sign-in did not initialize."));
+      script.onerror = () => reject(new Error("Google sign-in could not be loaded. Check your connection and retry."));
+      document.head.append(script);
+    }).catch(error => {
+      googleIdentityScriptPromise = null;
+      throw error;
+    });
+  }
+  return googleIdentityScriptPromise;
+}
+
+async function getGoogleDriveAccessToken() {
+  if (!googleDriveClientId) {
+    throw new Error("Google Drive sync is not configured yet. Add a Google OAuth web client ID and rebuild the app.");
+  }
+  const localHosts = new Set(["localhost", "127.0.0.1", "::1"]);
+  if (window.location.protocol !== "https:"
+    && !(window.location.protocol === "http:" && localHosts.has(window.location.hostname))) {
+    throw new Error("Google Drive sync requires the HTTPS GitHub Pages site. A file-opened app cannot use Google sign-in.");
+  }
+  await loadGoogleIdentityScript();
+  return new Promise((resolve, reject) => {
+    const tokenClient = window.google.accounts.oauth2.initTokenClient({
+      client_id: googleDriveClientId,
+      scope: googleDriveScope,
+      callback: response => {
+        if (response.error || !response.access_token) {
+          reject(new Error(response.error_description || response.error || "Google authorization was not completed."));
+          return;
+        }
+        resolve(response.access_token);
+      },
+      error_callback: error => reject(new Error(error.message || "Google authorization was not completed."))
+    });
+    tokenClient.requestAccessToken({ prompt: "" });
+  });
+}
+
+async function googleDriveRequest(url, accessToken, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      ...(options.headers || {})
+    }
+  });
+  if (!response.ok) {
+    let message = "";
+    try {
+      const errorData = await response.json();
+      message = errorData.error?.message || "";
+    } catch (error) {
+      if (!(error instanceof SyntaxError)) throw error;
+    }
+    throw new Error(message || `Google Drive request failed (${response.status}).`);
+  }
+  return response;
+}
+
+function validateDriveProfileStore(data) {
+  if (!data || data.format !== "japanese-study-profiles" || data.version !== 1
+    || !data.profileStore || data.profileStore.version !== 1
+    || !Array.isArray(data.profileStore.profiles) || !data.profileStore.profiles.length
+    || !Number.isInteger(data.profileStore.nextProfileNumber) || data.profileStore.nextProfileNumber < 1
+    || typeof data.profileStore.activeProfileId !== "string") {
+    throw new Error("The Google Drive file is not a supported study-progress backup.");
+  }
+  const ids = new Set();
+  const names = new Set();
+  const profiles = data.profileStore.profiles.map(profile => {
+    if (!profile || typeof profile.id !== "string" || !profile.id
+      || typeof profile.name !== "string" || !profile.name.trim()
+      || !profile.cards || typeof profile.cards !== "object" || Array.isArray(profile.cards)
+      || (profile.history !== undefined && !Array.isArray(profile.history))
+      || ids.has(profile.id) || names.has(profile.name.trim().toLocaleLowerCase())) {
+      throw new Error("The Google Drive backup contains an invalid or duplicate profile.");
+    }
+    ids.add(profile.id);
+    names.add(profile.name.trim().toLocaleLowerCase());
+    const validated = validateProgressBackup({
+      format: "japanese-study-progress",
+      version: 1,
+      cards: profile.cards,
+      history: profile.history || []
+    });
+    return {
+      id: profile.id,
+      name: profile.name.trim(),
+      cards: validated.cards,
+      history: validated.history
+    };
+  });
+  if (!ids.has(data.profileStore.activeProfileId)) {
+    throw new Error("The Google Drive backup has no active profile.");
+  }
+  return {
+    version: 1,
+    activeProfileId: data.profileStore.activeProfileId,
+    nextProfileNumber: data.profileStore.nextProfileNumber,
+    profiles
+  };
+}
+
+async function readGoogleDriveBackup(accessToken) {
+  const query = `name='${googleDriveFileName}' and trashed=false`;
+  const listUrl = new URL("https://www.googleapis.com/drive/v3/files");
+  listUrl.search = new URLSearchParams({
+    spaces: "appDataFolder",
+    q: query,
+    fields: "files(id,name,modifiedTime)",
+    orderBy: "modifiedTime desc",
+    pageSize: "100"
+  });
+  const listResponse = await googleDriveRequest(listUrl, accessToken);
+  const { files } = await listResponse.json();
+  if (!Array.isArray(files)) throw new Error("Google Drive returned an invalid file list.");
+  if (!files.length) return null;
+  const fileResponse = await googleDriveRequest(
+    `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(files[0].id)}?alt=media`,
+    accessToken
+  );
+  const data = await fileResponse.json();
+  return { fileId: files[0].id, profileStore: validateDriveProfileStore(data) };
+}
+
+function driveBackupPayload() {
+  return {
+    format: "japanese-study-profiles",
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    profileStore
+  };
+}
+
+async function writeGoogleDriveBackup(accessToken, fileId = null) {
+  const backup = driveBackupPayload();
+  backup.profileStore = validateDriveProfileStore(backup);
+  const payload = JSON.stringify(backup);
+  if (fileId) {
+    await googleDriveRequest(
+      `https://www.googleapis.com/upload/drive/v3/files/${encodeURIComponent(fileId)}?uploadType=media`,
+      accessToken,
+      { method: "PATCH", headers: { "Content-Type": "application/json" }, body: payload }
+    );
+    return;
+  }
+  const boundary = `japanese-study-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const body = [
+    `--${boundary}`,
+    "Content-Type: application/json; charset=UTF-8",
+    "",
+    JSON.stringify({ name: googleDriveFileName, parents: ["appDataFolder"], mimeType: "application/json" }),
+    `--${boundary}`,
+    "Content-Type: application/json; charset=UTF-8",
+    "",
+    payload,
+    `--${boundary}--`,
+    ""
+  ].join("\r\n");
+  const createUrl = new URL("https://www.googleapis.com/upload/drive/v3/files");
+  createUrl.search = new URLSearchParams({ uploadType: "multipart", fields: "id" });
+  const metadataResponse = await googleDriveRequest(createUrl, accessToken, {
+    method: "POST",
+    headers: { "Content-Type": `multipart/related; boundary=${boundary}` },
+    body
+  });
+  const { id } = await metadataResponse.json();
+  if (typeof id !== "string" || !id) throw new Error("Google Drive did not create a backup file.");
+}
+
+function sameSyncedProfiles(first, second) {
+  const firstSynced = { ...first };
+  const secondSynced = { ...second };
+  delete firstSynced.activeProfileId;
+  delete secondSynced.activeProfileId;
+  return JSON.stringify(firstSynced) === JSON.stringify(secondSynced);
+}
+
+async function syncProfilesWithGoogleDrive() {
+  const button = document.getElementById("sync-progress");
+  button.disabled = true;
+  try {
+    const accessToken = await getGoogleDriveAccessToken();
+    const remote = await readGoogleDriveBackup(accessToken);
+    if (!remote) {
+      await writeGoogleDriveBackup(accessToken);
+      showNotice("Uploaded all study profiles to Google Drive.");
+      return;
+    }
+    if (sameSyncedProfiles(profileStore, remote.profileStore)) {
+      showNotice("All study profiles are already up to date with Google Drive.");
+      return;
+    }
+    if (window.confirm(
+      "Your local profiles and Google Drive profiles differ. Replace the Google Drive copy with all profiles from this device? "
+      + "Choose Cancel to consider replacing this device's profiles with the Drive copy."
+    )) {
+      await writeGoogleDriveBackup(accessToken, remote.fileId);
+      showNotice("Uploaded all study profiles to Google Drive.");
+      return;
+    }
+    if (!window.confirm(
+      "Replace all profiles on this device with the Google Drive copy? "
+      + "Choose Cancel to leave both copies unchanged."
+    )) return;
+
+    const previousProfileStore = profileStore;
+    const localActiveProfileId = profileStore.activeProfileId;
+    const nextProfileStore = remote.profileStore;
+    if (nextProfileStore.profiles.some(profile => profile.id === localActiveProfileId)) {
+      nextProfileStore.activeProfileId = localActiveProfileId;
+    }
+    profileStore = nextProfileStore;
+    if (!saveProfiles()) {
+      profileStore = previousProfileStore;
+      return;
+    }
+    progress = {
+      version: 2,
+      cards: profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId).cards
+    };
+    lessonAnswerRevealed = false;
+    lessonNotice = "";
+    reviewSessionCards = [];
+    reviewSessionIndex = 0;
+    reviewAnswerRevealed = false;
+    reviewSessionActive = false;
+    renderProfileMenu();
+    renderStudyHome();
+    showNotice("Downloaded all study profiles from Google Drive.");
+  } catch (error) {
+    showNotice(error instanceof Error ? `Google Drive sync failed: ${error.message}` : "Google Drive sync failed.");
+  } finally {
+    button.disabled = false;
+  }
+}
 
 function renderCheckpointList() {
   const list = document.getElementById("checkpoint-list");
@@ -744,6 +994,7 @@ document.getElementById("reset-progress").onclick = () => {
   renderStudyHome();
 };
 document.getElementById("export-progress").addEventListener("click", exportActiveProfileProgress);
+document.getElementById("sync-progress").addEventListener("click", syncProfilesWithGoogleDrive);
 const importProgressFile = document.getElementById("import-progress-file");
 document.getElementById("import-progress").addEventListener("click", () => importProgressFile.click());
 importProgressFile.addEventListener("change", async () => {

@@ -21,7 +21,7 @@ Card links and view state are represented by URL fragments. The app does not req
 | `app.css` | Application layout and component styles. |
 | `font-faces.css` and `fonts/` | Local Noto Sans JP font subsets and license. |
 | `app.js` | Markdown parser, card model, conjugation-reading derivation, display helpers, and browser navigation. |
-| `app-study.js` | Lesson checkpoints, review scheduling and history, progress UI, backup import/export, and profile controls. |
+| `app-study.js` | Lesson checkpoints, review scheduling and history, progress UI, JSON backup import/export, Google Drive sync, and profile controls. |
 | `build-app.ps1` | Embeds the local font files and source data, combines the scripts, and writes `app.html`. |
 | `app.html` | Generated offline application. |
 
@@ -42,3 +42,5 @@ The script reads its default inputs relative to its own location and writes `app
 ## Browser persistence
 
 Profiles and their card-progress maps are stored together in the `japanese-study-profiles-v1` local-storage entry. Profile IDs are internal identifiers; a profile name is its user-facing identity. See [Study, checkpoints, and profiles](STUDY_AND_PROFILES.md) for the progress record and scheduling behavior.
+
+Google Drive sync uses the browser-based Google Identity Services token flow and Drive REST API directly from the app. It lazily loads Google Identity Services only when the user starts a sync, and stores the backup in the app's hidden `appDataFolder`. The OAuth web client ID is configured in `app-template.html`; it is a public client identifier, not a client secret.

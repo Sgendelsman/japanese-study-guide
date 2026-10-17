@@ -9,3 +9,6 @@ kanjiapi_full.zip
 
 # GitHub Pages build output
 site/
+
+# Secrets
+.env

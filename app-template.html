@@ -120,9 +120,10 @@
         <div class="progress-tools">
           <div>
             <h3 id="progress-profile-title"></h3>
-            <p class="muted">Back up this profile or restore it on another device.</p>
+            <p class="muted">Back up this profile or sync all profiles across your devices.</p>
           </div>
           <div class="progress-actions">
+            <button id="sync-progress" type="button" class="secondary-button">Sync with Google Drive</button>
             <button id="export-progress" type="button" class="secondary-button">Export progress</button>
             <button id="import-progress" type="button" class="secondary-button">Import progress</button>
             <input id="import-progress-file" type="file" accept=".json,application/json" hidden>
@@ -167,6 +168,7 @@
     <button id="reset-progress" type="button" class="text-button">Reset study progress</button>
   </footer>
   <script type="application/json" id="source-data">{{SOURCE_DATA}}</script>
+  <script>window.JAPANESE_STUDY_GOOGLE_CLIENT_ID = "516703188862-jeg0us070bdko7jffspt4bbhcovpmqru.apps.googleusercontent.com";</script>
   <script>{{APP_JS}}</script>
 </body>
 </html>
