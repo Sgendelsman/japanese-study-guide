@@ -109,6 +109,30 @@ function romanized(text) {
   return kanaToRomaji(text);
 }
 
+function conjugationRomaji(card, value) {
+  const explicitReading = /[（(]([ぁ-ゖァ-ヺー]+)[）)]/u.exec(value)?.[1];
+  if (explicitReading) return romanized(explicitReading);
+
+  const surface = /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]+/u.exec(value.trim())?.[0] || "";
+  if (/^[\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(surface)) return romanized(surface);
+
+  const reading = normalizeKana((card.reading.split(/[、,]/u)[0] || "").trim());
+  const lemma = card.term.replace(/\s+\[[^\]]+\]$/u, "");
+  const okurigana = /([\p{Script=Hiragana}\p{Script=Katakana}ー]+)$/u.exec(lemma)?.[1] || "";
+  const kanjiPrefix = okurigana ? lemma.slice(0, -okurigana.length) : lemma;
+  const normalizedOkurigana = normalizeKana(okurigana);
+  if (!reading || !/\p{Script=Han}/u.test(kanjiPrefix)
+    || (normalizedOkurigana && !reading.endsWith(normalizedOkurigana))
+    || !surface.startsWith(kanjiPrefix)) return "";
+
+  const conjugatedEnding = surface.slice(kanjiPrefix.length);
+  if (!/^[\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(conjugatedEnding)) return "";
+  const stemReading = normalizedOkurigana
+    ? reading.slice(0, -normalizedOkurigana.length)
+    : reading;
+  return romanized(`${stemReading}${conjugatedEnding}`);
+}
+
 function parseFields(body) {
   const fields = {};
   const pattern = /\*\*([^*]+):\*\*\s*(.*?)(?=(?:\s*\|\s*|\.\s+)\*\*[^*]+:\*\*|$)/gu;
@@ -138,7 +162,7 @@ function parseDeck(markdown) {
     const [, rawTerm, body] = entry;
     const fields = parseFields(body);
     if (top === "Verbs and Conjugations" && sub === "Conjugation Patterns") {
-      guide.push({ title: stripMarkdown(rawTerm), text: stripMarkdown(body) });
+      guide.push({ title: stripMarkdown(rawTerm), fields });
       continue;
     }
     const markedKanji = /\s+\[([^\]]+)\]\s*$/u.exec(rawTerm);
@@ -651,6 +675,8 @@ function renderDetail(card, parent) {
     for (const [label, value] of entries) {
       const item = element("div", "conjugation");
       item.append(element("b", "", label), element("span", "", value));
+      const reading = conjugationRomaji(card, value);
+      if (reading) item.append(element("small", "conjugation-romaji", reading));
       grid.append(item);
     }
     section.append(grid);
@@ -746,10 +772,31 @@ function renderGuide() {
   root.replaceChildren();
   for (const entry of parsed.guide) {
     const section = element("section", "guide-entry");
-    section.append(element("h3", "", entry.title), element("p", "", entry.text));
+    section.append(element("h3", "", entry.title));
+    for (const [label, text] of Object.entries(entry.fields)) {
+      const field = element("div", "guide-field");
+      field.append(element("b", "", `${label}:`), element("p", "", stripMarkdown(text)));
+      section.append(field);
+    }
     root.append(section);
   }
   if (!parsed.guide.length) root.append(element("p", "muted", "No conjugation patterns are included in the source."));
+
+  const resources = element("section", "guide-resources");
+  resources.append(element("h3", "", "Further reading"));
+  const links = [
+    ["Tae Kim's Guide to Japanese Grammar", "A free, detailed explanation of Japanese grammar and verb forms.", "https://guidetojapanese.org/learn/grammar"],
+    ["Tofugu's Learn Japanese guide", "A structured learning path with grammar and usage explanations.", "https://www.tofugu.com/learn-japanese/"]
+  ];
+  for (const [title, description, url] of links) {
+    const link = element("a", "guide-resource");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.append(element("b", "", title), element("span", "", description));
+    resources.append(link);
+  }
+  root.append(resources);
 }
 
 document.getElementById("deck-summary").textContent = `${cards.length.toLocaleString()} cards · JLPT N5–N1`;

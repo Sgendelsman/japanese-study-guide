@@ -8818,17 +8818,25 @@ Kanshudo JLPT groupings are estimates, not official test lists. Characters follo
 
 ### Conjugation Patterns
 
-**Godan ending patterns.** **ます:** change the final う-row kana to its い-row form, then add ます (書く → 書きます). **ない:** use the あ-row form + ない (書く → 書かない; う → わない). **Potential:** use the え-row form + る (書く → 書ける). **Volitional:** use the お-row form + う (書く → 書こう).
+**ます-form.** **Formation:** Godan verbs change the final kana to its い-row form and add ます; Ichidan verbs replace る with ます. する and 来る become します and 来ます (きます). **When to use:** Use for polite statements and questions. It does not mark future tense by itself; time comes from context. **Example:** 書く → 書きます (かきます).
 
-**Godan て-form and past.** **う、つ、る:** って、った. **む、ぶ、ぬ:** んで、んだ. **く:** いて、いた. **ぐ:** いで、いだ. **す:** して、した. **Exception:** 行く becomes 行って and 行った.
+**ない-form.** **Formation:** Godan verbs change the final kana to its あ-row form and add ない (う changes to わ); Ichidan verbs replace る with ない. する becomes しない, and 来る becomes 来ない (こない). **When to use:** Use for plain, informal negatives. For polite negatives, replace ます with ません. **Example:** 書く → 書かない (かかない).
 
-**Ichidan ending pattern.** Drop final る, then add the ending: 食べる → 食べます、食べない、食べて、食べた、食べよう、食べれば. Potential and passive have the same form: 食べられる; context tells them apart.
+**て-form.** **Formation:** Ichidan verbs replace る with て; する becomes して and 来る becomes 来て (きて). Godan endings change as follows: う、つ、る → って; む、ぶ、ぬ → んで; く → いて; ぐ → いで; す → して. 行く is an exception: 行って. **When to use:** Use to make requests, connect actions, and build patterns for permission, ongoing actions, and more. **Example:** 書く → 書いて (かいて).
 
-**する pattern.** **ます:** します. **ない:** しない. **て:** して. **た:** した. **Potential:** できる. **Volitional:** しよう. **Conditional:** すれば. **Passive:** される. **Causative:** させる.
+**た-form.** **Formation:** It follows the same Godan sound changes as the て-form, ending in った、んだ、いた、いだ、 or した; 行く becomes 行った. Ichidan verbs replace る with た; する becomes した and 来る becomes 来た (きた). **When to use:** Use for plain past statements and as the base for patterns such as experience. **Example:** 読む → 読んだ (よんだ).
 
-**来る pattern.** Readings change: 来る (くる), 来ます (きます), 来ない (こない), 来て (きて), 来た (きた), 来よう (こよう), 来れば (くれば), 来られる (こられる), 来させる (こさせる).
+**Potential form.** **Formation:** Godan verbs change the final kana to its え-row form and add る; Ichidan verbs replace る with られる. する becomes できる, and 来る becomes 来られる (こられる). **When to use:** Use to say that someone can or is able to do something. **Example:** 書く → 書ける (かける). **Note:** Ichidan potential and passive forms are identical; context distinguishes them.
 
-**ある negative.** ある is a special godan verb: its ordinary negative is ない, not あらない. Common forms: あります、あって、あった、あれば.
+**Volitional form.** **Formation:** Godan verbs change the final kana to its お-row form and add う; Ichidan verbs replace る with よう. する becomes しよう, and 来る becomes 来よう (こよう). **When to use:** Use for the speaker's intention (“I'll...”) or to make an informal suggestion (“Let's...”). **Example:** 書く → 書こう (かこう).
+
+**ば conditional.** **Formation:** Godan verbs change the final kana to its え-row form and add ば; Ichidan verbs replace る with れば. する becomes すれば, and 来る becomes 来れば (くれば). **When to use:** Use for a general or hypothetical “if/when” condition, often emphasizing what follows if the condition is met. **Example:** 読む → 読めば (よめば).
+
+**Passive form.** **Formation:** Godan verbs change the final kana to its あ-row form and add れる (う changes to わ); Ichidan verbs replace る with られる. する becomes される, and 来る becomes 来られる (こられる). **When to use:** Use when the subject receives an action. Japanese also uses passive forms to describe being affected by an action. **Example:** 書く → 書かれる (かかれる). **Note:** Ichidan passive and potential forms are identical; context distinguishes them.
+
+**Causative form.** **Formation:** Godan verbs change the final kana to its あ-row form and add せる (う changes to わ); Ichidan verbs replace る with させる. する becomes させる, and 来る becomes 来させる (こさせる). **When to use:** Use to say that someone makes or lets another person do something; context determines which meaning fits. **Example:** 食べる → 食べさせる (たべさせる).
+
+**ている-form.** **Formation:** Add いる to the て-form. **When to use:** Depending on the verb, it describes an action in progress, a repeated or habitual action, or a resulting state. **Example:** 書く → 書いている (かいている); 結婚する → 結婚している can describe the resulting state of being married.
 
 ### Godan Verbs
 
@@ -8888,6 +8896,6 @@ Kanshudo JLPT groupings are estimates, not official test lists. Characters follo
 
 **来る [Irregular].** **Reading:** くる. **Meaning:** come. **ます:** 来ます (きます). **ない:** 来ない (こない). **て:** 来て (きて). **た:** 来た (きた). **Potential/passive:** 来られる (こられる). **Volitional:** 来よう (こよう). **Conditional:** 来れば (くれば). **Causative:** 来させる (こさせる). **ている:** 来ている (きている).
 
-**ある [Special].** **Meaning:** exist; be (for things). **ます:** あります. **Negative:** ない (not あらない). **て:** あって. **た:** あった. **Conditional:** あれば. This verb has an irregular negative.
+**ある [Special].** **Meaning:** exist; be (for things). **ます:** あります. **Negative:** ない (not あらない). **て:** あって. **た:** あった. **Conditional:** あれば. **Usage:** This verb has an irregular negative.
 
 **勉強する [する compound].** **Reading:** べんきょうする. **Meaning:** study. **ます:** 勉強します. **ない:** 勉強しない. **て:** 勉強して. **た:** 勉強した. **Potential:** 勉強できる. **Volitional:** 勉強しよう. **Conditional:** 勉強すれば. **Passive:** 勉強される. **Causative:** 勉強させる.

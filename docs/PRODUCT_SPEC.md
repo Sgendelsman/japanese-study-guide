@@ -17,7 +17,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - Kanji cards show available on'yomi and kun'yomi, readings in romaji, meanings, and links to deck words containing the character.
 - Word cards show supplied readings and meanings, readings in romaji, links to kanji in the word, and a kanji-specific reading when the source allows it to be matched.
 - JLPT word cards show sourced pitch-accent types and a mora-by-mora high/low contour when available. Missing readings are identified without inferring an accent.
-- Verb cards include the supplied conjugation forms.
+- Verb cards include the supplied conjugation forms with romaji wherever the source reading or kana spelling supports a reliable pronunciation.
 - Cards can be browsed, searched, filtered by JLPT/category and card type, and opened by stable URL fragment links. Linked cards are navigable.
 
 ## Learning and review
@@ -34,6 +34,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 ## Interface
 
 - The app has Browse, Study, and Conjugation Guide views.
+- The Conjugation Guide explains when common verb forms are used, how they are formed, and gives examples with links to further grammar references.
 - Study has Lessons and Reviews sections.
 - The profile control in the header opens a compact list of selectable profiles with a trailing add button. The selected profile is visibly highlighted. Adding opens an inline name field above the add button; leaving the field saves a non-empty name, and an adjacent cancel button abandons profile creation. Profiles cannot be deleted in the UI.
 - Card and view routes use URL fragments and support browser navigation.
