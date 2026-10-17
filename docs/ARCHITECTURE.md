@@ -8,7 +8,7 @@ The runtime has three main views:
 
 - Browse parses and merges the Markdown deck, builds search and category filters, renders card details, and provides links between related cards.
 - Study renders checkpointed lessons, spaced reviews, daily due counts, and profile-specific progress.
-- Conjugation Guide renders the learner-oriented form descriptions documented in the deck source and links to external grammar references.
+- Conjugation Guide renders the learner-oriented form descriptions documented in the deck source, links to external grammar references, and supports form-specific fragment routes.
 
 Card links and view state are represented by URL fragments. The app does not require a server, framework, package installation, or remote service.
 

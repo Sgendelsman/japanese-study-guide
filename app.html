@@ -122,8 +122,9 @@ main { width: min(1440px, 100%); min-height: calc(100vh - 150px); margin: 0 auto
 .related-button small { display: block; margin-top: 3px; color: var(--muted); }
 .conjugation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: 8px; }
 .conjugation { padding: 10px; background: #f6f7f5; border-radius: 9px; }
-.conjugation b, .conjugation span { display: block; }
+.conjugation b, .conjugation span, .conjugation .conjugation-label { display: block; }
 .conjugation b { margin-bottom: 5px; color: var(--muted); font-size: 11px; }
+.conjugation .conjugation-label { width: fit-content; margin-bottom: 5px; color: var(--accent); font-size: 11px; font-weight: 700; text-decoration: underline dotted; text-underline-offset: 3px; }
 .conjugation span { font-size: 15px; }
 .conjugation-romaji { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
 .source-note { margin-top: 20px; color: var(--muted); font-size: 12px; }
@@ -171,7 +172,7 @@ main { width: min(1440px, 100%); min-height: calc(100vh - 150px); margin: 0 auto
 .in-session .schedule-layout { display: none; }
 .lesson-feedback { margin: 0 0 12px; color: #914b36; text-align: center; }
 .guide-content { max-width: 920px; padding: clamp(20px, 4vw, 38px); }
-.guide-entry { padding: 17px 0; border-bottom: 1px solid var(--line); line-height: 1.65; }
+.guide-entry { padding: 17px 0; border-bottom: 1px solid var(--line); line-height: 1.65; scroll-margin-top: 20px; }
 .guide-entry:first-child { padding-top: 0; }
 .guide-entry h3, .guide-resources h3 { margin-bottom: 9px; font-size: 17px; }
 .guide-field { margin-top: 7px; }
@@ -511,6 +512,25 @@ function conjugationRomaji(card, value) {
     ? reading.slice(0, -normalizedOkurigana.length)
     : reading;
   return romanized(`${stemReading}${conjugatedEnding}`);
+}
+
+function conjugationGuideAnchor(label) {
+  const anchors = {
+    "ます": "masu-form",
+    "ない": "nai-form",
+    "negative": "nai-form",
+    "て": "te-form",
+    "た": "ta-form",
+    "potential": "potential-form",
+    "potential/passive": "potential-form",
+    "volitional": "volitional-form",
+    "conditional": "ba-conditional",
+    "ば conditional": "ba-conditional",
+    "passive": "passive-form",
+    "causative": "causative-form",
+    "ている": "teiru-form"
+  };
+  return anchors[label.trim().toLowerCase()] || "";
 }
 
 function parseFields(body) {
@@ -1054,7 +1074,15 @@ function renderDetail(card, parent) {
     const grid = element("div", "conjugation-grid");
     for (const [label, value] of entries) {
       const item = element("div", "conjugation");
-      item.append(element("b", "", label), element("span", "", value));
+      const anchor = conjugationGuideAnchor(label);
+      if (anchor) {
+        const guideLink = element("a", "conjugation-label", label);
+        guideLink.href = `#guide/${anchor}`;
+        item.append(guideLink);
+      } else {
+        item.append(element("b", "", label));
+      }
+      item.append(element("span", "", value));
       const reading = conjugationRomaji(card, value);
       if (reading) item.append(element("small", "conjugation-romaji", reading));
       grid.append(item);
@@ -1152,6 +1180,8 @@ function renderGuide() {
   root.replaceChildren();
   for (const entry of parsed.guide) {
     const section = element("section", "guide-entry");
+    const anchor = conjugationGuideAnchor(entry.title.replace(/(?:-|\s)?form$/iu, ""));
+    if (anchor) section.id = anchor;
     section.append(element("h3", "", entry.title));
     for (const [label, text] of Object.entries(entry.fields)) {
       const field = element("div", "guide-field");
@@ -1463,9 +1493,15 @@ function applyRoute() {
     setStudySection(studyRoute[1] || "lessons");
     return;
   }
-  if (hash === "#guide") {
+  const guideRoute = /^#guide(?:\/([a-z0-9-]+))?$/u.exec(hash);
+  if (guideRoute) {
     document.getElementById("notice").hidden = true;
     setView("guide");
+    if (guideRoute[1]) {
+      const section = document.getElementById(guideRoute[1]);
+      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      else showNotice("That conjugation guide section could not be found.");
+    }
     return;
   }
   const match = /^#card\/(kanji|word)\/(.+)$/u.exec(hash);

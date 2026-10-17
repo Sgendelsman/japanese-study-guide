@@ -252,9 +252,15 @@ function applyRoute() {
     setStudySection(studyRoute[1] || "lessons");
     return;
   }
-  if (hash === "#guide") {
+  const guideRoute = /^#guide(?:\/([a-z0-9-]+))?$/u.exec(hash);
+  if (guideRoute) {
     document.getElementById("notice").hidden = true;
     setView("guide");
+    if (guideRoute[1]) {
+      const section = document.getElementById(guideRoute[1]);
+      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      else showNotice("That conjugation guide section could not be found.");
+    }
     return;
   }
   const match = /^#card\/(kanji|word)\/(.+)$/u.exec(hash);

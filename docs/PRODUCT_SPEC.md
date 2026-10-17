@@ -35,6 +35,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 
 - The app has Browse, Study, and Conjugation Guide views.
 - The Conjugation Guide explains when common verb forms are used, how they are formed, and gives examples with links to further grammar references.
+- Verb conjugation labels link to their matching guide section; browser Back returns to the verb card.
 - Study has Lessons and Reviews sections.
 - The profile control in the header opens a compact list of selectable profiles with a trailing add button. The selected profile is visibly highlighted. Adding opens an inline name field above the add button; leaving the field saves a non-empty name, and an adjacent cancel button abandons profile creation. Profiles cannot be deleted in the UI.
 - Card and view routes use URL fragments and support browser navigation.

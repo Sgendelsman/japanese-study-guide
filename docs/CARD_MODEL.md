@@ -14,7 +14,7 @@ Cards use level-two headings for top-level groups and deeper headings for catego
 
 Card entries use the bold term followed by labeled fields, such as `Reading`, `Meaning`, `On'yomi`, `Kun'yomi`, `Example`, and `Usage`. JLPT vocabulary may include a `Pitch accent` field with one entry per reading, formatted as `reading: type [L-H-L]`; entries without a verified pitch record use `reading: unavailable`. Verb entries may also include labeled conjugation forms.
 
-The `Conjugation Patterns` subsection stores guide entries with `Formation`, `When to use`, `Example`, and optional `Note` labels. Verb-card conjugation romaji uses an explicit per-form reading when present, otherwise the supplied base reading and kana endings or the kana-only form itself; forms without a reliable full reading do not display partial romaji.
+The `Conjugation Patterns` subsection stores guide entries with `Formation`, `When to use`, `Example`, and optional `Note` labels. Verb-card conjugation labels map to stable guide-section fragment IDs. Verb-card conjugation romaji uses an explicit per-form reading when present, otherwise the supplied base reading and kana endings or the kana-only form itself; forms without a reliable full reading do not display partial romaji.
 
 ## Runtime card shape
 

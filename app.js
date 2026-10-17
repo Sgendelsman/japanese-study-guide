@@ -133,6 +133,25 @@ function conjugationRomaji(card, value) {
   return romanized(`${stemReading}${conjugatedEnding}`);
 }
 
+function conjugationGuideAnchor(label) {
+  const anchors = {
+    "ます": "masu-form",
+    "ない": "nai-form",
+    "negative": "nai-form",
+    "て": "te-form",
+    "た": "ta-form",
+    "potential": "potential-form",
+    "potential/passive": "potential-form",
+    "volitional": "volitional-form",
+    "conditional": "ba-conditional",
+    "ば conditional": "ba-conditional",
+    "passive": "passive-form",
+    "causative": "causative-form",
+    "ている": "teiru-form"
+  };
+  return anchors[label.trim().toLowerCase()] || "";
+}
+
 function parseFields(body) {
   const fields = {};
   const pattern = /\*\*([^*]+):\*\*\s*(.*?)(?=(?:\s*\|\s*|\.\s+)\*\*[^*]+:\*\*|$)/gu;
@@ -674,7 +693,15 @@ function renderDetail(card, parent) {
     const grid = element("div", "conjugation-grid");
     for (const [label, value] of entries) {
       const item = element("div", "conjugation");
-      item.append(element("b", "", label), element("span", "", value));
+      const anchor = conjugationGuideAnchor(label);
+      if (anchor) {
+        const guideLink = element("a", "conjugation-label", label);
+        guideLink.href = `#guide/${anchor}`;
+        item.append(guideLink);
+      } else {
+        item.append(element("b", "", label));
+      }
+      item.append(element("span", "", value));
       const reading = conjugationRomaji(card, value);
       if (reading) item.append(element("small", "conjugation-romaji", reading));
       grid.append(item);
@@ -772,6 +799,8 @@ function renderGuide() {
   root.replaceChildren();
   for (const entry of parsed.guide) {
     const section = element("section", "guide-entry");
+    const anchor = conjugationGuideAnchor(entry.title.replace(/(?:-|\s)?form$/iu, ""));
+    if (anchor) section.id = anchor;
     section.append(element("h3", "", entry.title));
     for (const [label, text] of Object.entries(entry.fields)) {
       const field = element("div", "guide-field");
