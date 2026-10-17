@@ -6,7 +6,7 @@ The app is published at <https://sgendelsman.github.io/japanese-study-guide/>.
 
 The GitHub Actions workflow at `.github/workflows/pages.yml` runs on pushes to `main` and can also be started manually. It rebuilds `app.html`, copies it to `site/index.html`, and deploys that directory using the GitHub Pages artifact actions. The single HTML page embeds its data, JavaScript, CSS, and local fonts.
 
-GitHub Pages must use **GitHub Actions** as its build and deployment source. The workflow configures this source and deploys the artifact; the repository must allow Actions to run.
+The workflow enables GitHub Pages for the repository when needed, configures GitHub Actions as its deployment source, and deploys the artifact. The repository must allow Actions to run.
 
 ## Browser behavior
 
