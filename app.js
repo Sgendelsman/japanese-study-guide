@@ -325,10 +325,12 @@ try {
     if (parsedProfiles?.version !== 1 || !Array.isArray(parsedProfiles.profiles)
       || !parsedProfiles.profiles.every(profile => typeof profile.id === "string"
         && typeof profile.name === "string" && profile.name.trim()
-        && profile.cards && typeof profile.cards === "object")) {
+        && profile.cards && typeof profile.cards === "object"
+        && (!profile.history || Array.isArray(profile.history)))) {
       throw new Error("The saved profiles have an invalid format.");
     }
     profileStore = parsedProfiles;
+    for (const profile of profileStore.profiles) profile.history ||= [];
     if (!profileStore.profiles.some(profile => profile.id === profileStore.activeProfileId)) {
       throw new Error("The active study profile could not be found.");
     }
@@ -355,7 +357,7 @@ try {
         };
       }
     }
-    profileStore.profiles.push({ id: "profile-1", name: "Steven", cards: progress.cards });
+    profileStore.profiles.push({ id: "profile-1", name: "Steven", cards: progress.cards, history: [] });
     localStorage.setItem(profilesKey, JSON.stringify(profileStore));
   }
   progress = {
@@ -364,7 +366,7 @@ try {
   };
 } catch (error) {
   profileStore = { version: 1, activeProfileId: "profile-1", nextProfileNumber: 2, profiles: [
-    { id: "profile-1", name: "Steven", cards: {} }
+    { id: "profile-1", name: "Steven", cards: {}, history: [] }
   ] };
   progress = { version: 2, cards: {} };
   showNotice("Saved profiles or study progress could not be read. A new Steven profile will be used; existing browser data was left untouched.");
@@ -384,6 +386,7 @@ function saveProgress() {
     const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
     if (!activeProfile) throw new Error("The active study profile could not be found.");
     activeProfile.cards = progress.cards;
+    activeProfile.history ||= [];
     localStorage.setItem(profilesKey, JSON.stringify(profileStore));
   } catch (error) {
     showNotice("Study progress could not be saved in this browser. Check its storage settings.");

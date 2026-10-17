@@ -29,6 +29,7 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - A correct lesson answer marks the card learned and schedules its first review for the next day. An incorrect answer leaves it in the lesson queue.
 - Reviews show due cards and a day-by-day schedule. A correct review doubles the interval; an incorrect review reduces it to one quarter, rounded down, with a one-day minimum.
 - Dates use the browser's local calendar day. Review schedules and lesson progress persist across page reloads for the active profile.
+- Each profile has a Progress tab listing completed lessons and dated review results. Export downloads a JSON backup with that profile's card schedules and study history. Import validates a backup, confirms replacement, then replaces progress for the active profile only; profile names and other profiles are unchanged.
 - Users can reset only the active profile's study progress.
 
 ## Interface
@@ -47,5 +48,6 @@ Japanese Study Guide is a standalone, offline-capable browser app for learning J
 - A word never becomes an available lesson before all of its linked kanji lessons are complete.
 - Completing a checkpoint unlocks the next checkpoint without changing completed cards or review schedules.
 - Switching profiles loads the selected profile's own progress; saving or resetting it does not alter another profile.
+- Exporting and importing a profile backup restores lesson completion, review intervals and due dates, review totals, and recorded study history without changing other profiles.
 - A rebuild after changing source Markdown produces a functional app with the same features and updated deck data.
 - A push to `main` publishes the rebuilt app at the repository's GitHub Pages URL.

@@ -7,7 +7,7 @@
 The runtime has three main views:
 
 - Browse parses and merges the Markdown deck, builds search and category filters, renders card details, and provides links between related cards.
-- Study renders checkpointed lessons, spaced reviews, daily due counts, and profile-specific progress.
+- Study renders checkpointed lessons, spaced reviews, daily due counts, profile-specific progress history, and validated JSON backup import/export.
 - Conjugation Guide renders the learner-oriented form descriptions documented in the deck source, links to external grammar references, and supports form-specific fragment routes.
 
 Card links and view state are represented by URL fragments. The app does not require a server, framework, package installation, or remote service.
@@ -21,7 +21,7 @@ Card links and view state are represented by URL fragments. The app does not req
 | `app.css` | Application layout and component styles. |
 | `font-faces.css` and `fonts/` | Local Noto Sans JP font subsets and license. |
 | `app.js` | Markdown parser, card model, conjugation-reading derivation, display helpers, and browser navigation. |
-| `app-study.js` | Lesson checkpoints, review scheduling, progress UI, and profile controls. |
+| `app-study.js` | Lesson checkpoints, review scheduling and history, progress UI, backup import/export, and profile controls. |
 | `build-app.ps1` | Embeds the local font files and source data, combines the scripts, and writes `app.html`. |
 | `app.html` | Generated offline application. |
 

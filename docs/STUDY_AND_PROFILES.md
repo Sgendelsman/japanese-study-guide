@@ -25,6 +25,7 @@ Each learned card has an interval in whole days, a local date key (`YYYY-MM-DD`)
 - An incorrect review sets the interval to `max(1, floor(current interval / 4))` days and schedules the next due date from today.
 - Overdue cards count as due today.
 - The review view lists due cards and groups upcoming cards by due date.
+- Each review response records its date, result, and resulting interval in the active profile's history.
 
 ## Profiles and persistence
 
@@ -49,10 +50,31 @@ The `japanese-study-profiles-v1` local-storage value has this shape:
           "reviews": 0,
           "lessonAttempts": 1
         }
-      }
+      },
+      "history": [
+        {
+          "cardId": "kanji:人",
+          "type": "lesson",
+          "date": "2026-10-16",
+          "timestamp": "2026-10-16T12:00:00.000Z"
+        },
+        {
+          "cardId": "kanji:人",
+          "type": "review",
+          "date": "2026-10-17",
+          "timestamp": "2026-10-17T12:00:00.000Z",
+          "result": "correct",
+          "intervalDays": 2,
+          "dueDate": "2026-10-19"
+        }
+      ]
     }
   ]
 }
 ```
 
-Reset progress clears lesson and review records for the active profile only; profiles and other profiles' records remain intact. If local storage cannot be read or written, the app presents a notice.
+The Progress tab lists completed lessons and review events for the active profile. Existing profiles without history show their completed cards, review totals, and any available latest-review date/result; historical event dates that were not stored cannot be reconstructed.
+
+Export downloads a JSON backup with format `japanese-study-progress`, version `1`, the profile name for reference, that profile's card schedule map, and its study history. Import validates this data and asks for confirmation before replacing the active profile's cards and history. It never replaces a profile name or changes another profile. Card data and history are preserved in the backup even if an entry no longer exists in the currently loaded deck.
+
+Reset progress clears lesson, review schedule, and history records for the active profile only; profiles and other profiles' records remain intact. If local storage cannot be read or written, the app presents a notice.

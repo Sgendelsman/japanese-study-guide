@@ -128,6 +128,17 @@ main { width: min(1440px, 100%); min-height: calc(100vh - 150px); margin: 0 auto
 .study-tab { padding: 11px 15px; color: var(--muted); background: transparent; border: 0; border-bottom: 2px solid transparent; }
 .study-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 650; }
 .study-tab span { margin-left: 5px; padding: 2px 7px; color: var(--accent); background: var(--accent-soft); border-radius: 999px; font-size: 11px; }
+.progress-tools { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.progress-tools h3 { margin-bottom: 4px; font-size: 19px; }
+.progress-tools p { margin: 0; }
+.progress-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.progress-history { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.history-section { min-width: 0; overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: 13px; }
+.history-list { max-height: 60vh; overflow: auto; padding: 8px; }
+.history-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 9px; border-bottom: 1px solid #eef0ee; font-size: 13px; }
+.history-row:last-child { border-bottom: 0; }
+.history-row .review-card-link { min-width: 0; overflow-wrap: anywhere; }
+.history-term { min-width: 0; overflow-wrap: anywhere; font-size: 19px; }
 .study-overview, .review-overview { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 0 0 17px; }
 .study-overview > div:first-child, .review-overview > div:first-child { min-width: 0; }
 .study-overview h3, .review-overview h3 { margin-bottom: 5px; font-size: 19px; }
@@ -191,6 +202,8 @@ footer { display: flex; justify-content: space-between; gap: 16px; padding: 20px
   .browse-layout { grid-template-columns: 1fr; }
   .card-list { max-height: 35vh; }
   .schedule-layout { grid-template-columns: 1fr; }
+  .progress-history { grid-template-columns: 1fr; }
+  .progress-tools { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 520px) {

@@ -81,6 +81,7 @@
       <div class="study-tabs" role="tablist" aria-label="Study sections">
         <button type="button" class="study-tab active" id="lessons-tab" role="tab" aria-selected="true" aria-controls="lessons-panel" data-study-section="lessons">Lessons</button>
         <button type="button" class="study-tab" id="reviews-tab" role="tab" aria-selected="false" aria-controls="reviews-panel" data-study-section="reviews">Reviews <span id="due-tab-count"></span></button>
+        <button type="button" class="study-tab" id="progress-tab" role="tab" aria-selected="false" aria-controls="progress-panel" data-study-section="progress">Progress</button>
       </div>
       <section id="lessons-panel" class="study-panel" role="tabpanel" aria-labelledby="lessons-tab">
         <div class="study-overview">
@@ -114,6 +115,29 @@
           </section>
         </div>
         <article id="review-card" class="study-card" hidden></article>
+      </section>
+      <section id="progress-panel" class="study-panel" role="tabpanel" aria-labelledby="progress-tab" hidden>
+        <div class="progress-tools">
+          <div>
+            <h3 id="progress-profile-title"></h3>
+            <p class="muted">Back up this profile or restore it on another device.</p>
+          </div>
+          <div class="progress-actions">
+            <button id="export-progress" type="button" class="secondary-button">Export progress</button>
+            <button id="import-progress" type="button" class="secondary-button">Import progress</button>
+            <input id="import-progress-file" type="file" accept=".json,application/json" hidden>
+          </div>
+        </div>
+        <div class="progress-history">
+          <section class="history-section">
+            <div class="results-heading"><h3>Completed lessons</h3><span id="completed-lesson-count"></span></div>
+            <div id="completed-lesson-list" class="history-list"></div>
+          </section>
+          <section class="history-section">
+            <div class="results-heading"><h3>Review history</h3><span id="review-history-count"></span></div>
+            <div id="review-history-list" class="history-list"></div>
+          </section>
+        </div>
       </section>
     </section>
 

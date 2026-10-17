@@ -97,6 +97,16 @@ function renderLessonSection() {
         reviews: previous?.reviews || 0,
         lessonAttempts: (previous?.lessonAttempts || 0) + 1
       };
+      const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
+      activeProfile.history ||= [];
+      if (!activeProfile.history.some(entry => entry.type === "lesson" && entry.cardId === next.id)) {
+        activeProfile.history.push({
+          cardId: next.id,
+          type: "lesson",
+          date: todayKey(),
+          timestamp: new Date().toISOString()
+        });
+      }
       lessonAnswerRevealed = false;
       document.getElementById("notice").hidden = true;
       saveProgress();
@@ -169,6 +179,97 @@ function renderReviewOverview() {
   }
 }
 
+function renderProgressHistory() {
+  const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
+  if (!activeProfile) return;
+  activeProfile.history ||= [];
+  document.getElementById("progress-profile-title").textContent = `${activeProfile.name}'s study history`;
+
+  const lessons = activeProfile.history
+    .filter(entry => entry.type === "lesson")
+    .slice()
+    .sort((first, second) => (first.timestamp || first.date || "").localeCompare(second.timestamp || second.date || ""));
+  const lessonIds = new Set(lessons.map(entry => entry.cardId));
+  for (const card of lessonCards.filter(lessonComplete)) {
+    if (!lessonIds.has(card.id)) lessons.push({ cardId: card.id, type: "lesson", date: "" });
+  }
+
+  const lessonList = document.getElementById("completed-lesson-list");
+  lessonList.replaceChildren();
+  document.getElementById("completed-lesson-count").textContent = `${lessons.length.toLocaleString()} cards`;
+  if (!lessons.length) {
+    lessonList.append(element("p", "empty-state", "Completed lessons will appear here."));
+  } else {
+    for (const entry of lessons) {
+      const card = cards.find(item => item.id === entry.cardId);
+      const row = element("div", "history-row");
+      if (card) {
+        const link = element("a", "review-card-link", card.term);
+        link.href = cardUrl(card);
+        row.append(link);
+      } else {
+        row.append(element("span", "history-term", entry.cardId));
+      }
+      row.append(element("span", "review-card-info", entry.date ? prettyDate(entry.date) : "Date not recorded"));
+      lessonList.append(row);
+    }
+  }
+
+  const reviewEvents = activeProfile.history
+    .filter(entry => entry.type === "review")
+    .slice()
+    .sort((first, second) => (second.timestamp || second.date || "").localeCompare(first.timestamp || first.date || ""));
+  const reviewCounts = new Map();
+  for (const entry of reviewEvents) reviewCounts.set(entry.cardId, (reviewCounts.get(entry.cardId) || 0) + 1);
+  const legacyReviews = [];
+  for (const card of lessonCards) {
+    const record = progress.cards[card.id];
+    const missingCount = Math.max(0, (record?.reviews || 0) - (reviewCounts.get(card.id) || 0));
+    if (missingCount) legacyReviews.push({ cardId: card.id, count: missingCount, record });
+  }
+
+  const reviewList = document.getElementById("review-history-list");
+  reviewList.replaceChildren();
+  const totalReviewCount = reviewEvents.length + legacyReviews.reduce((sum, entry) => sum + entry.count, 0);
+  document.getElementById("review-history-count").textContent = `${totalReviewCount.toLocaleString()} reviews`;
+  if (!totalReviewCount) {
+    reviewList.append(element("p", "empty-state", "Completed reviews will appear here."));
+  } else {
+    for (const entry of reviewEvents) {
+      const card = cards.find(item => item.id === entry.cardId);
+      const row = element("div", "history-row");
+      if (card) {
+        const link = element("a", "review-card-link", card.term);
+        link.href = cardUrl(card);
+        row.append(link);
+      } else {
+        row.append(element("span", "history-term", entry.cardId));
+      }
+      const result = entry.result === "correct" ? "Got it" : "Need practice";
+      const details = [`${entry.date ? prettyDate(entry.date) : "Date not recorded"} · ${result}`];
+      if (entry.intervalDays) details.push(`next review in ${entry.intervalDays} day${entry.intervalDays === 1 ? "" : "s"}`);
+      row.append(element("span", "review-card-info", details.join(" · ")));
+      reviewList.append(row);
+    }
+    for (const entry of legacyReviews) {
+      const card = cards.find(item => item.id === entry.cardId);
+      const row = element("div", "history-row");
+      if (card) {
+        const link = element("a", "review-card-link", card.term);
+        link.href = cardUrl(card);
+        row.append(link);
+      } else {
+        row.append(element("span", "history-term", entry.cardId));
+      }
+      const latest = entry.record.lastReviewed
+        ? `${prettyDate(entry.record.lastReviewed)} · latest: ${entry.record.lastResult === "missed" ? "Need practice" : "Got it"}`
+        : "Dates not recorded";
+      row.append(element("span", "review-card-info", `${entry.count} earlier review${entry.count === 1 ? "" : "s"} · ${latest}`));
+      reviewList.append(row);
+    }
+  }
+}
+
 function renderReviewSession() {
   const panel = document.getElementById("review-card");
   panel.hidden = !reviewSessionActive;
@@ -206,6 +307,17 @@ function updateReviewSchedule(card, correct) {
     lastReviewed: todayKey(),
     lastResult: correct ? "correct" : "missed"
   };
+  const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
+  activeProfile.history ||= [];
+  activeProfile.history.push({
+    cardId: card.id,
+    type: "review",
+    date: todayKey(),
+    timestamp: new Date().toISOString(),
+    result: correct ? "correct" : "missed",
+    intervalDays,
+    dueDate: addDaysToDateKey(todayKey(), intervalDays)
+  });
   saveProgress();
   reviewSessionIndex++;
   reviewAnswerRevealed = false;
@@ -216,6 +328,7 @@ function renderStudyHome() {
   renderLessonSection();
   renderReviewOverview();
   renderReviewSession();
+  if (activeStudySection === "progress") renderProgressHistory();
 }
 
 function setStudySection(section) {
@@ -227,6 +340,7 @@ function setStudySection(section) {
   }
   document.getElementById("lessons-panel").hidden = section !== "lessons";
   document.getElementById("reviews-panel").hidden = section !== "reviews";
+  document.getElementById("progress-panel").hidden = section !== "progress";
   renderStudyHome();
 }
 
@@ -245,7 +359,7 @@ function applyRoute() {
     setView("browse");
     return;
   }
-  const studyRoute = /^#study(?:\/(lessons|reviews))?$/u.exec(hash);
+  const studyRoute = /^#study(?:\/(lessons|reviews|progress))?$/u.exec(hash);
   if (studyRoute) {
     document.getElementById("notice").hidden = true;
     setView("study");
@@ -394,7 +508,7 @@ function createProfile(name) {
     profileStore.nextProfileNumber = (profileStore.nextProfileNumber || 1) + 1;
     id = `profile-${profileStore.nextProfileNumber}`;
   }
-  const profile = { id, name, cards: {} };
+  const profile = { id, name, cards: {}, history: [] };
   const previousProfileId = profileStore.activeProfileId;
   profileStore.profiles.push(profile);
   profileStore.nextProfileNumber = Number(id.slice("profile-".length)) + 1;
@@ -472,6 +586,131 @@ function activateProfile(profileId) {
   return true;
 }
 
+function validDateKey(value) {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/u.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+
+function validateProgressBackup(data) {
+  if (!data || data.format !== "japanese-study-progress" || data.version !== 1
+    || !data.cards || typeof data.cards !== "object" || Array.isArray(data.cards)
+    || !Array.isArray(data.history)) {
+    throw new Error("This file is not a supported Japanese Study Guide progress backup.");
+  }
+  const importedCards = Object.create(null);
+  for (const [cardId, record] of Object.entries(data.cards)) {
+    if (!cardId || !record || typeof record !== "object" || Array.isArray(record)
+      || typeof record.lessonComplete !== "boolean"
+      || !Number.isInteger(record.lessonAttempts) || record.lessonAttempts < 0
+      || !Number.isInteger(record.reviews) || record.reviews < 0
+      || (record.intervalDays !== undefined && (!Number.isInteger(record.intervalDays) || record.intervalDays < 1))
+      || (record.dueDate !== undefined && !validDateKey(record.dueDate))
+      || (record.lastReviewed !== undefined && !validDateKey(record.lastReviewed))
+      || (record.lastResult !== undefined && !["correct", "missed"].includes(record.lastResult))
+      || (record.lessonComplete && (!Number.isInteger(record.intervalDays) || record.intervalDays < 1
+        || !validDateKey(record.dueDate)))
+      || (record.reviews > 0 && (!record.lessonComplete || !Number.isInteger(record.intervalDays)
+        || record.intervalDays < 1 || !validDateKey(record.dueDate)))) {
+      throw new Error("The backup contains an invalid card-progress record.");
+    }
+    importedCards[cardId] = {
+      lessonComplete: record.lessonComplete,
+      lessonAttempts: record.lessonAttempts,
+      reviews: record.reviews,
+      ...(record.intervalDays !== undefined ? { intervalDays: record.intervalDays } : {}),
+      ...(record.dueDate !== undefined ? { dueDate: record.dueDate } : {}),
+      ...(record.lastReviewed !== undefined ? { lastReviewed: record.lastReviewed } : {}),
+      ...(record.lastResult !== undefined ? { lastResult: record.lastResult } : {})
+    };
+  }
+  const history = data.history.map(entry => {
+    if (!entry || typeof entry !== "object" || typeof entry.cardId !== "string" || !entry.cardId
+      || !["lesson", "review"].includes(entry.type) || !validDateKey(entry.date)
+      || (entry.timestamp !== undefined && (typeof entry.timestamp !== "string" || !Number.isFinite(Date.parse(entry.timestamp))))) {
+      throw new Error("The backup contains an invalid study-history record.");
+    }
+    if (entry.type === "review" && (!["correct", "missed"].includes(entry.result)
+      || !Number.isInteger(entry.intervalDays) || entry.intervalDays < 1
+      || !validDateKey(entry.dueDate))) {
+      throw new Error("The backup contains an invalid review-history record.");
+    }
+    return {
+      cardId: entry.cardId,
+      type: entry.type,
+      date: entry.date,
+      ...(entry.timestamp ? { timestamp: entry.timestamp } : {}),
+      ...(entry.type === "review" ? {
+        result: entry.result,
+        intervalDays: entry.intervalDays,
+        dueDate: entry.dueDate
+      } : {})
+    };
+  });
+  return { cards: importedCards, history };
+}
+
+function exportActiveProfileProgress() {
+  const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
+  const backup = {
+    format: "japanese-study-progress",
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    profileName: activeProfile.name,
+    cards: activeProfile.cards,
+    history: activeProfile.history || []
+  };
+  const blobUrl = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" }));
+  const link = element("a");
+  const filename = activeProfile.name.toLowerCase().replace(/[^a-z0-9]+/gu, "-").replace(/^-|-$/gu, "") || "profile";
+  link.href = blobUrl;
+  link.download = `japanese-study-${filename}-progress.json`;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+  showNotice(`Exported progress for ${activeProfile.name}. Keep the downloaded JSON file somewhere safe.`);
+}
+
+async function importActiveProfileProgress(file) {
+  try {
+    if (file.size > 25 * 1024 * 1024) throw new Error("The selected backup is larger than 25 MB.");
+    const data = JSON.parse(await file.text());
+    const imported = validateProgressBackup(data);
+    const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
+    const completedCount = Object.values(imported.cards).filter(record => record.lessonComplete).length;
+    const reviewCount = Object.values(imported.cards).reduce((total, record) => total + record.reviews, 0);
+    if (!window.confirm(
+      `Replace ${activeProfile.name}'s current progress with the backup for ${data.profileName || "another profile"}? `
+      + `This imports ${completedCount.toLocaleString()} completed lessons and ${reviewCount.toLocaleString()} reviews. `
+      + "Other profiles will not change."
+    )) return;
+
+    const previousCards = activeProfile.cards;
+    const previousHistory = activeProfile.history || [];
+    const previousProgress = progress;
+    activeProfile.cards = imported.cards;
+    activeProfile.history = imported.history;
+    progress = { version: 2, cards: activeProfile.cards };
+    if (!saveProfiles()) {
+      activeProfile.cards = previousCards;
+      activeProfile.history = previousHistory;
+      progress = previousProgress;
+      return;
+    }
+    lessonAnswerRevealed = false;
+    lessonNotice = "";
+    reviewSessionCards = [];
+    reviewSessionIndex = 0;
+    reviewAnswerRevealed = false;
+    reviewSessionActive = false;
+    renderStudyHome();
+    showNotice(`Imported progress into ${activeProfile.name}.`);
+  } catch (error) {
+    showNotice(error instanceof Error ? `Progress import failed: ${error.message}` : "Progress import failed.");
+  }
+}
+
 document.getElementById("start-reviews").addEventListener("click", () => {
   if (reviewSessionActive) {
     reviewSessionActive = false;
@@ -483,7 +722,7 @@ document.getElementById("start-reviews").addEventListener("click", () => {
 for (const tab of document.querySelectorAll(".study-tab")) {
   tab.addEventListener("click", () => {
     const section = tab.dataset.studySection;
-    navigateToRoute(section === "lessons" ? "#study/lessons" : "#study/reviews");
+    navigateToRoute(`#study/${section}`);
   });
 }
 document.addEventListener("pointerdown", event => {
@@ -495,6 +734,7 @@ document.getElementById("reset-progress").onclick = () => {
   const activeProfile = profileStore.profiles.find(profile => profile.id === profileStore.activeProfileId);
   if (!window.confirm(`Reset all lesson progress and review schedules for ${activeProfile.name}?`)) return;
   progress = { version: 2, cards: {} };
+  activeProfile.history = [];
   lessonAnswerRevealed = false;
   reviewSessionCards = [];
   reviewSessionIndex = 0;
@@ -503,6 +743,14 @@ document.getElementById("reset-progress").onclick = () => {
   saveProgress();
   renderStudyHome();
 };
+document.getElementById("export-progress").addEventListener("click", exportActiveProfileProgress);
+const importProgressFile = document.getElementById("import-progress-file");
+document.getElementById("import-progress").addEventListener("click", () => importProgressFile.click());
+importProgressFile.addEventListener("change", async () => {
+  const [file] = importProgressFile.files || [];
+  if (file) await importActiveProfileProgress(file);
+  importProgressFile.value = "";
+});
 document.addEventListener("keydown", event => {
   if (currentView !== "study" || event.target.matches("input, select, textarea, button, a")) return;
   if (activeStudySection === "lessons" && event.code === "Space" && !lessonAnswerRevealed) {

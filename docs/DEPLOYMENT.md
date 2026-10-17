@@ -12,6 +12,7 @@ On first setup, enable Pages in **Settings → Pages → Build and deployment �
 
 - The same app supports direct file opening and the GitHub Pages repository subpath. Card and view navigation uses URL fragments, which remain shareable under the hosted path.
 - Profiles and study progress are stored in browser local storage for the current origin. The hosted site and a local `file:` page have separate browser storage; progress is not automatically shared between them.
+- Use the Study → Progress tab to export a profile's progress JSON and import it on another browser or computer. Import replaces progress for the currently selected profile after confirmation.
 - The app makes no remote requests for its core functionality. Links in the source-attribution section open external reference sites when selected.
 
 ## Release flow
