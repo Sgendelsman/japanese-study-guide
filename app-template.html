@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Japanese Kanji &amp; Vocabulary</title>
+  <style>{{APP_CSS}}{{LOCAL_FONTS}}</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">あ</div>
+      <div>
+        <h1>Japanese study</h1>
+        <p id="deck-summary">Kanji, words, and verbs</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <nav class="main-nav" aria-label="Main navigation">
+        <button type="button" class="nav-button active" data-view="browse">Browse</button>
+        <button type="button" class="nav-button" data-view="study">Study</button>
+        <button type="button" class="nav-button" data-view="guide">Conjugation guide</button>
+      </nav>
+      <details id="profile-menu" class="profile-menu">
+        <summary><span id="active-profile-name">Steven</span><span aria-hidden="true">⌄</span></summary>
+        <div class="profile-popover">
+          <label for="profile-select">Switch profile</label>
+          <div class="profile-switch-row">
+            <select id="profile-select"></select>
+            <button id="profile-switch" type="button" class="secondary-button">Switch</button>
+          </div>
+          <form id="profile-create-form" class="profile-create-form">
+            <label for="new-profile-name">Add a profile</label>
+            <input id="new-profile-name" type="text" maxlength="40" autocomplete="off" placeholder="Name">
+            <button id="profile-create" type="submit" class="secondary-button">Add profile</button>
+          </form>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <main>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <section id="browse-view" class="view">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">EXPLORE THE DECK</p>
+          <h2>Browse cards</h2>
+          <p class="muted">Follow links between kanji and words, or filter by JLPT level.</p>
+        </div>
+        <div id="deck-count" class="deck-count"></div>
+      </div>
+      <div class="filters">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Search Japanese, romaji, or meaning" autocomplete="off">
+        </label>
+        <label class="type-select">Card type
+          <select id="type-filter">
+            <option value="all">Kanji and words</option>
+            <option value="kanji">Kanji</option>
+            <option value="word">Words</option>
+            <option value="verb">Verbs</option>
+          </select>
+        </label>
+      </div>
+      <div class="category-heading">
+        <h3>Categories</h3>
+        <button id="toggle-categories" type="button" class="text-button">Select all</button>
+      </div>
+      <div id="categories" class="category-filters" aria-label="Filter by category"></div>
+      <div class="browse-layout">
+        <section class="card-results" aria-label="Cards">
+          <div class="results-heading"><h3>Cards</h3><span id="result-count"></span></div>
+          <div id="card-list" class="card-list"></div>
+        </section>
+        <article id="card-detail" class="card-detail" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <section id="study-view" class="view" hidden>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">PRACTICE</p>
+          <h2>Study cards</h2>
+          <p class="muted">Learn cards in order, then keep them fresh with scheduled reviews.</p>
+        </div>
+      </div>
+      <div class="study-tabs" role="tablist" aria-label="Study sections">
+        <button type="button" class="study-tab active" id="lessons-tab" role="tab" aria-selected="true" aria-controls="lessons-panel" data-study-section="lessons">Lessons</button>
+        <button type="button" class="study-tab" id="reviews-tab" role="tab" aria-selected="false" aria-controls="reviews-panel" data-study-section="reviews">Reviews <span id="due-tab-count"></span></button>
+      </div>
+      <section id="lessons-panel" class="study-panel" role="tabpanel" aria-labelledby="lessons-tab">
+        <div class="study-overview">
+          <div>
+            <p class="eyebrow">LESSON PROGRESS</p>
+            <h3 id="lesson-summary"></h3>
+            <p id="lesson-subtitle" class="muted"></p>
+          </div>
+          <div class="progress-track"><div id="lesson-progress-fill"></div></div>
+        </div>
+        <ol id="checkpoint-list" class="checkpoint-list" aria-label="Lesson checkpoints"></ol>
+        <article id="lesson-card" class="study-card"></article>
+      </section>
+      <section id="reviews-panel" class="study-panel" role="tabpanel" aria-labelledby="reviews-tab" hidden>
+        <div class="review-overview">
+          <div>
+            <p class="eyebrow">SPACED REVIEW</p>
+            <h3 id="review-summary"></h3>
+            <p id="review-subtitle" class="muted"></p>
+          </div>
+          <button id="start-reviews" type="button" class="secondary-button">Start due reviews</button>
+        </div>
+        <div class="schedule-layout">
+          <section class="schedule-days">
+            <div class="results-heading"><h3>Available by day</h3></div>
+            <div id="review-schedule" class="schedule-list"></div>
+          </section>
+          <section class="review-queue">
+            <div class="results-heading"><h3>Review deck</h3><span id="review-total"></span></div>
+            <div id="review-list" class="review-list"></div>
+          </section>
+        </div>
+        <article id="review-card" class="study-card" hidden></article>
+      </section>
+    </section>
+
+    <section id="guide-view" class="view" hidden>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">REFERENCE</p>
+          <h2>Verb conjugation guide</h2>
+          <p class="muted">Patterns and exceptions from the deck source.</p>
+        </div>
+      </div>
+      <div id="guide-content" class="guide-content"></div>
+    </section>
+  </main>
+  <footer>
+    <details class="attribution">
+      <summary>Data sources &amp; licenses</summary>
+      <p>Kanji readings and meanings come from KANJIDIC2 via
+        <a href="https://kanjiapi.dev/" target="_blank" rel="noopener noreferrer">kanjiapi.dev</a>;
+        vocabulary examples and glosses are derived from JMdict. Both datasets are distributed under
+        <a href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        JLPT groupings are estimates from <a href="https://www.kanshudo.com/collections/jlpt_kanji" target="_blank" rel="noopener noreferrer">Kanshudo</a>, not official test lists.
+        Romaji is generated from kana using Hepburn-style transliteration. Noto Sans JP font subsets are bundled under the SIL Open Font License 1.1.
+      </p>
+    </details>
+    <button id="reset-progress" type="button" class="text-button">Reset study progress</button>
+  </footer>
+  <script type="application/json" id="source-data">{{SOURCE_DATA}}</script>
+  <script>{{APP_JS}}</script>
+</body>
+</html>
