@@ -12,7 +12,7 @@ Cards use level-two headings for top-level groups and deeper headings for catego
 - `## Everyday Japanese (Kana Included)` contains Everyday vocabulary.
 - `## Verbs and Conjugations` contains verb cards and the conjugation guide.
 
-Card entries use the bold term followed by labeled fields, such as `Reading`, `Meaning`, `On'yomi`, `Kun'yomi`, `Example`, and `Usage`. Verb entries may also include labeled conjugation forms.
+Card entries use the bold term followed by labeled fields, such as `Reading`, `Meaning`, `On'yomi`, `Kun'yomi`, `Example`, and `Usage`. N5 vocabulary may include a `Pitch accent` field with one entry per reading, formatted as `reading: type [L-H-L]`; entries without a verified pitch record use `reading: unavailable`. Verb entries may also include labeled conjugation forms.
 
 ## Runtime card shape
 
@@ -26,6 +26,7 @@ Repeated word terms from multiple categories are merged into one card while reta
 - A word card links to deck kanji cards found in its term.
 - The app compares supplied word readings with the kanji card's supplied readings to identify a specific on'yomi or kun'yomi where an exact normalized match exists.
 - Romaji is rendered from the supplied kana using the app's Hepburn-style transliterator. It does not replace or modify source readings.
+- N5 word-card pitch contours use the supplied L/H sequence for each mora and display the following-particle pitch to make final-mora downsteps visible. The type and sequence come from the Kanjium entry; missing records remain unavailable.
 - The source markup may mark an explicitly linked kanji on a vocabulary term. Other kanji relationships are derived from the word text.
 
 ## Attribution

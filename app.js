@@ -44,6 +44,19 @@ function normalizeKana(text) {
   }).join("");
 }
 
+function splitMorae(text) {
+  const normalized = normalizeKana(text.replace(/[.・]/gu, ""));
+  const morae = [];
+  for (const character of normalized) {
+    if (/[ゃゅょぁぃぅぇぉゎゕゖ]/u.test(character) && morae.length) {
+      morae[morae.length - 1] += character;
+    } else {
+      morae.push(character);
+    }
+  }
+  return morae;
+}
+
 function macronize(previous, vowel) {
   const macrons = { a: "ā", i: "ī", u: "ū", e: "ē", o: "ō" };
   for (let i = previous.length - 1; i >= 0; i--) {
@@ -160,6 +173,7 @@ function parseDeck(markdown) {
       readings: fields["Kun'yomi"] || "",
       onReadings: fields["On'yomi"] || "",
       reading: fields.Reading || "",
+      pitchAccent: fields["Pitch accent"] || "",
       meaning: fields.Meaning || "",
       example: fields.Example || "",
       usage: fields.Usage || "",
@@ -193,12 +207,14 @@ function mergeWordCards(entries) {
     existing.categories = [...new Set([...existing.categories, card.category])];
     existing.subcategories = [...new Set([existing.subcategory, card.subcategory].filter(Boolean))];
     existing.reading = mergeValues(existing.reading, card.reading, "、");
+    existing.pitchAccent = mergeValues(existing.pitchAccent, card.pitchAccent, "; ");
     existing.meaning = [...new Set(`${existing.meaning}; ${card.meaning}`.split(/\s*;\s*/u).filter(Boolean))].join("; ");
     existing.example = mergeValues(existing.example, card.example, " · ");
     existing.usage = mergeValues(existing.usage, card.usage, " · ");
     existing.isVerb ||= card.isVerb;
     existing.linkedKanji = [...new Set([...existing.linkedKanji, ...card.linkedKanji])];
     existing.conjugations = { ...existing.conjugations, ...card.conjugations };
+    existing.fields["Pitch accent"] = existing.pitchAccent;
     existing.fields.Meaning = existing.meaning;
   }
   return [...merged.values()].map(card => ({
@@ -423,6 +439,97 @@ function addSection(parent, title) {
   return section;
 }
 
+function pitchAccentEntries(value) {
+  return value.replace(/[.。]\s*$/u, "").split(/\s*;\s*/u).filter(Boolean).map(entry => {
+    const unavailable = /^(.+?)\s*:\s*unavailable$/u.exec(entry);
+    if (unavailable) return { reading: unavailable[1].trim(), unavailable: true };
+    const match = /^(.+?)\s*:\s*(\d+)\s*\[([LH](?:-[LH])*)\]$/u.exec(entry);
+    if (!match) return { error: entry };
+    const reading = match[1].trim();
+    const morae = splitMorae(reading);
+    const levels = match[3].split("-");
+    if (morae.length !== levels.length) return { error: entry };
+    return { reading, accentNumber: Number(match[2]), morae, levels };
+  });
+}
+
+function addPitchAccent(parent, value) {
+  const section = addSection(parent, "Pitch accent");
+  section.append(element("p", "muted pitch-help",
+    "H is higher and L is lower. The final point shows an example following particle, が."));
+  const entries = value ? pitchAccentEntries(value) : [];
+  for (const entry of entries) {
+    if (entry.error) {
+      section.append(element("p", "pitch-unavailable", "Pitch accent data could not be read."));
+      continue;
+    }
+    if (entry.unavailable) {
+      section.append(element("p", "pitch-unavailable", `No source data for ${entry.reading}.`));
+      continue;
+    }
+    const item = element("div", "pitch-entry");
+    const title = element("div", "pitch-heading");
+    title.append(
+      element("span", "pitch-reading kana-reading", entry.reading),
+      element("span", "pitch-type", entry.accentNumber === 0
+        ? "Type 0 · no downstep"
+        : `Type ${entry.accentNumber} · downstep after mora ${entry.accentNumber}`)
+    );
+    item.append(title);
+
+    const particleLevel = entry.accentNumber === 0 ? "H" : "L";
+    const levels = [...entry.levels, particleLevel];
+    const morae = [...entry.morae, "が"];
+    const pointGap = 38;
+    const width = (levels.length - 1) * pointGap + 42;
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "pitch-contour");
+    svg.setAttribute("width", String(width));
+    svg.setAttribute("height", "86");
+    svg.setAttribute("viewBox", `0 0 ${width} 86`);
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", `Pitch contour for ${entry.reading}, type ${entry.accentNumber}: ${
+      morae.map((mora, index) => `${mora} ${levels[index]}`).join(", ")
+    }`);
+    const points = levels.map((level, index) =>
+      `${21 + index * pointGap},${level === "H" ? 22 : 52}`).join(" ");
+    const line = document.createElementNS(svg.namespaceURI, "polyline");
+    line.setAttribute("points", points);
+    line.setAttribute("class", "pitch-line");
+    svg.append(line);
+    levels.forEach((level, index) => {
+      const x = 21 + index * pointGap;
+      const y = level === "H" ? 22 : 52;
+      const dot = document.createElementNS(svg.namespaceURI, "circle");
+      dot.setAttribute("cx", String(x));
+      dot.setAttribute("cy", String(y));
+      dot.setAttribute("r", "4");
+      dot.setAttribute("class", "pitch-dot");
+      svg.append(dot);
+      const pitchLabel = document.createElementNS(svg.namespaceURI, "text");
+      pitchLabel.setAttribute("x", String(x));
+      pitchLabel.setAttribute("y", String(y - (level === "H" ? 8 : -14)));
+      pitchLabel.setAttribute("class", "pitch-level");
+      pitchLabel.textContent = level;
+      svg.append(pitchLabel);
+      const moraLabel = document.createElementNS(svg.namespaceURI, "text");
+      moraLabel.setAttribute("x", String(x));
+      moraLabel.setAttribute("y", "79");
+      moraLabel.setAttribute("class", index === morae.length - 1 ? "pitch-mora pitch-particle" : "pitch-mora");
+      moraLabel.textContent = morae[index];
+      svg.append(moraLabel);
+    });
+    item.append(svg);
+    section.append(item);
+  }
+  if (!entries.length) section.append(element("p", "pitch-unavailable", "No source data for this word."));
+  const sourceLink = element("a", "pitch-source", "Pitch data: Kanjium");
+  sourceLink.href = "https://github.com/mifunetoshiro/kanjium";
+  sourceLink.target = "_blank";
+  sourceLink.rel = "noopener noreferrer";
+  section.append(sourceLink);
+}
+
 function addReadingList(parent, title, readings) {
   const values = readings.split(/[、,]/u).map(value => value.trim()).filter(Boolean);
   if (!values.length) return;
@@ -499,6 +606,7 @@ function renderDetail(card, parent) {
     const reading = addSection(parent, "Reading");
     reading.append(element("p", "meaning japanese-reading kana-reading", card.reading), element("p", "detail-romaji", romanized(card.reading)));
   }
+  if (card.type === "word" && card.categories.includes("N5")) addPitchAccent(parent, card.pitchAccent);
   if (card.meaning) addSection(parent, "Meaning").append(element("p", "meaning", card.meaning));
   if (card.usage) addSection(parent, "Usage").append(element("p", "meaning", card.usage));
   if (card.example) addSection(parent, "Example").append(element("p", "meaning", card.example));
